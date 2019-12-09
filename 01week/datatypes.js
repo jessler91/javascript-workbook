@@ -58,17 +58,41 @@ var sumfd = f + d;
 console.log(sumfd);
 
 // Write a JavaScript program that runs only when 2 things are true.
-
-console.log(BoyAge)
+console.log("BoyAge");
 var boy1age = 8;
 var boy2age = 7;
 const myAgeFunc = (boy1age, boy2age) => {
-    if ((boy1age < boy2age) && (boy1age + boy2age >= 15))
-        console.log ("true") } 
-        else {console.log ("false")
-}
-
+  if (boy1age < boy2age && boy1age + boy2age >= 10) {
+    console.log("Both boy statements are true");
+    function boyProgram() {}
+  } else {
+    console.log("Both boy statements are not true, so the program is false");
+  }
+};
+myAgeFunc();
 
 // Write a JavaScript program that runs when 1 of 2 things are true.
+console.log("GirlAge");
+var girlAge1 = 15;
+var girlAge2 = 10;
+
+const girlAgeFunc = (girlAge1, girlAge2) => {
+  if (girlAge1 > girlAge2 && girlAge1 + girlAge2 > 10) {
+    console.log("Both girl statements are true");
+  } else {
+    console.log("Both girl statements are not true, so the program is false");
+    function girlProgram() {
+      console.log("Run girlProgram Function");
+    }
+  }
+};
+girlAgeFunc();
 
 // Write a JavaScript program that runs when both things are not true.
+var x;
+var y;
+var z;
+
+function notTrue(){
+    
+}
