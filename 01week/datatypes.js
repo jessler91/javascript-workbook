@@ -30,9 +30,9 @@ console.log(
 );
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-// Null
-var guess = null;
-console.log("The name variable of 'guess' is a", typeof guess);
+// Null..... for some reason it is repurning object....
+var num4 = null;
+console.log("The name variable of 'num4' is", typeof num4);
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // Undefined, complete
@@ -40,24 +40,30 @@ var d;
 console.log("the variable d is", typeof d);
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-// Number
+// Number, complete
 var number7 = 15;
 console.log(number7, "is a", typeof number7);
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-// NaN
+// NaN, I dont get this one, I copied and paseted to get to the NaN answer
+// x = ('text' + 10);
+// console.log(x);
+// console.log(typeof x);
+console.log('Appdividend' - 30)
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // String, complete
 console.log("The name John Doe from above is a", typeof name);
 
-// Write a JavaScript program that adds 2 numbers together. Complete
+// Write a JavaScript program that adds 2 numbers toether. 
+// Complete
 var f = 17;
 var d = 26;
 var sumfd = f + d;
 console.log(sumfd);
 
 // Write a JavaScript program that runs only when 2 things are true.
+// This one isnt working, I cannot seem to figure out how to make the boolean return "true"
 console.log("BoyAge");
 var boy1age = 8;
 var boy2age = 7;
@@ -72,6 +78,7 @@ const myAgeFunc = (boy1age, boy2age) => {
 myAgeFunc();
 
 // Write a JavaScript program that runs when 1 of 2 things are true.
+// This one isnt working// This one isnt working, likewise I cannot seem to figure out how to make the boolean return "true"
 console.log("GirlAge");
 var girlAge1 = 15;
 var girlAge2 = 10;
@@ -89,10 +96,14 @@ const girlAgeFunc = (girlAge1, girlAge2) => {
 girlAgeFunc();
 
 // Write a JavaScript program that runs when both things are not true.
-var x;
-var y;
-var z;
-
+// this should work but I am not confident that it is
+var x = false;
+var y = true;
 function notTrue(){
-    
+    if (x === false && y === false) {
+        runProgram();
+    }
+    else {
+        console.log("Game Over");
+    }
 }
