@@ -1,16 +1,16 @@
 let button = document.getElementById("button");
 button.addEvenetListener("click", handleClick); {
-
 }
 
 function buttonClicked() {
     console.log("I am inside handeledClick");
     // get the word
-    let inputtedSubmission = document.getElementById("user-submission");
-    let word = inputtedSubmission.value;
+    let inputtedSubmission = document.getElementById("userInput");
+    let word = userInput.value;
     console.log("word : ", word);
     // translate the word
     let translatedWord = pigLatin(word);
+    
     function pigLatin(word) {
         word = word.trim().toLowerCase();
         const vowel = ["a", "e", "i", "o", "u"];
@@ -34,9 +34,9 @@ function buttonClicked() {
           return switchedWord+"yay";
         }
       }
-    console.log("translation", translatedWord);
+    console.log("the translation is...", translatedWord);
     // update the span
-    let newWord = document.getElementById("translatedWord");
-    newWord.innerText = translatedWord
+    let newWord = document.getElementById("newWord");
+    newWord.innerText = translatedWord;
     console.log("I am at the end of handleClick");
 }

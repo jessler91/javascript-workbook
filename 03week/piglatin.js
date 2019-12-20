@@ -2,7 +2,7 @@
 console.log("loding js script")
 
 let button2 = document.getElementById("button2");
-button2.addEvenetListener("click", handleClick); {
+button2.addEvenetListener("click", handleClick()); {
     
 }
 
@@ -26,7 +26,7 @@ button2.addEvenetListener("click", handleClick); {
 function handleClick() {
     console.log("I am inside handeledClick");
     // get the word
-    let inputElement = document.getElementById("word")
+    let inputElement = document.getElementById("word");
     let word = inputElement.value;
     console.log("word : ", word);
     // translate the word
@@ -56,12 +56,12 @@ function handleClick() {
         }
       }
 
-    console.log("translation", translation);
+    console.log("the translation is ...", translation);
 
 
     // update the span
     let translatedWord = document.getElementById("translatedWord");
-    translatedWord.innerText = translation
+    translatedWord.innerText = translation;
     console.log("I am at the end of handleClick");
 
 }
