@@ -7,20 +7,20 @@ button2.addEvenetListener("click", handleClick); {
 }
 
 
-let element = document.getElementById("translatedWord");
-element.addEventListener("mouseover", function(){
-    console.log("th word is hovered over");
-})
+// let element = document.getElementById("translatedWord");
+// element.addEventListener("mouseover", function(){
+//     console.log("th word is hovered over");
+// })
 
 
-let inputElement = document.getElementById("word");
-imputElement.addEventListener("keyup", function(){
-    let value = document.getElementById("word").value;
-    console.log(value.length);
-    let span = document.getElementById("wordlength");
-    span.innerText = value.length;
+// let inputElement = document.getElementById("word");
+// imputElement.addEventListener("keyup", function(){
+//     let value = document.getElementById("word").value;
+//     console.log(value.length);
+//     let span = document.getElementById("wordlength");
+//     span.innerText = value.length;
 
-    })
+//     })
 
 
 function handleClick() {
@@ -32,8 +32,6 @@ function handleClick() {
     // translate the word
     let translation = pigLatin(word);
     function pigLatin(word) {
-
-        // console.log("========wordIndex/firstVowel========");
       
         word = word.trim().toLowerCase();
         const vowel = ["a", "e", "i", "o", "u"];
@@ -46,17 +44,10 @@ function handleClick() {
             firstVowel = wordIndex;
           }
         }
-        
-        // console.log("====================================");
-        // console.log("the original word is", word);
-        // console.log("The firstVowel is at index position .... " + firstVowel);
       
         firstHalf = word.substring(0, firstVowel);
         secondHalf = word.substring(firstVowel, word.length);
         switchedWord = secondHalf + firstHalf;
-      
-        // console.log("The switched word at the firstVowel is ... " + switchedWord);
-        // console.log("============FinalAnswer=============");
         
         if (firstVowel !== 0) {
           return switchedWord+"ay";  
