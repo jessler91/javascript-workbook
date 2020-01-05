@@ -1,3 +1,10 @@
+
+// Towers of Hanoi Checkpoint1 Assignment
+// Justin Essler - 01/05/19 - AustinCodingAcademy
+
+// need to figure out how to access the value of the final item in an array
+// stacks.a[stacks.a.length-1]
+
 'use strict';
 
 const assert = require('assert');
@@ -17,59 +24,64 @@ function printStacks() {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
+  // console.log("and so it begins....");
+  // console.log(startStack[startStack.length-1]);
 }
 
+// ========================================================
+// ========= Checkpoint1 Assignment Starts Here ===========
+// ========================================================
+
+
+// ========== Function movePiece =========
 function movePiece(startStack, endStack) {
-// move the top piece from startStack to top of endStack
-  // Your code here
-
+  // move the top piece from startStack to top of endStack
+  let movingPiece = stacks.startStack.pop();
+  stacks.endStack.push(movingPiece);
+  function printStacks(){}
+  console.log("moved piece and updated the board");
 }
 
-
-
+// ========= Function isLegal =========
 function isLegal(startStack, endStack) {
-// if the move is legal return true
-// if the move is not legal return false
-// A legal move is....
-  // when at least 1 piece in the start stack
-    // 1. when the endStack is empty
-    // 2. when the top pieve in the start stack is smaller than the top piece in the endstack
-
-// Your code here
-
-
-
-
-
+  // if the move is legal return true, a legal move is
+  // when at least 1 piece resides in the startStack and..
+  //  when the endStack is empty or..
+  //  when the top piece in the start stack is smaller than the top piece in the endstack
+  if (startStack.length > 0 && (startStack.length > endStack.length)) {
+    return console.log("The move is legal");
+  } else {
+    // else the move is not legal return false
+    // and tell user the move is not legal
+    return false;
+  }
 }
 
+// ========== Function checkForWin =========
 function checkForWin() {
-// if the player won, return true
-// if the player did not win, return false
-// a win is when all 4 blocks are in stack b or stack c
-
-
-  // Your code here
-
+  // if the player won, return true
+  // if the player did not win, return false
+  // a win is when all 4 blocks are in stack b or stack c
+  if (stacks.b.length || stacks.c.length >=4) {
+    return true;
+    console.log("Payer Wins");
+  } else {
+    return false;
+    console.log("keep playing, you have not won yet");
+    }
 }
 
+// ========== Function Exectute Towers Game =========
 function towersOfHanoi(startStack, endStack) {
   // takes in the userInput for startStack and endStack
   // and digitally plays the round
-  
-
-  
-  // Your code here
-
+  function isLegal(){}
   // check to see if the move is legal
-    // move the piece
-  // esle if the move is not legal
-    // tell user the move is not legal
-
+  function movePiece(){}
+  // moves the piece and prints the board
+  function checkForWin(){}
   // check if they won
-    // if they won, tell them they won,
-    // if they did not win, do nothing
-    
+  // either tell them they won, or do nothing
 }
 
 function getPrompt() {
