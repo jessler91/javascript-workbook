@@ -37,8 +37,8 @@ function printStacks() {
 function movePiece(startStack, endStack) {
   // move the top piece from startStack to top of endStack
   let movingPiece = stacks.startStack.pop();
+  stacks.startStack.pop();
   stacks.endStack.push(movingPiece);
-  function printStacks(){}
   console.log("moved piece and updated the board");
 }
 
@@ -48,7 +48,7 @@ function isLegal(startStack, endStack) {
   // when at least 1 piece resides in the startStack and..
   //  when the endStack is empty or..
   //  when the top piece in the start stack is smaller than the top piece in the endstack
-  if (startStack.length > 0 && (startStack.length > endStack.length)) {
+  if (stacks.startStack.length > 0 && (stacks.startStack.length > stacks.endStack.length)) {
     return console.log("The move is legal");
   } else {
     // else the move is not legal return false
@@ -77,8 +77,10 @@ function towersOfHanoi(startStack, endStack) {
   // and digitally plays the round
   function isLegal(){}
   // check to see if the move is legal
+  // let startStack = stacks.startStack;
+  // let endStack = stack.endStack;
   function movePiece(){}
-  // moves the piece and prints the board
+  // moves the piece and prints the boardß
   function checkForWin(){}
   // check if they won
   // either tell them they won, or do nothing
