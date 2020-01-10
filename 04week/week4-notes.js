@@ -1,20 +1,25 @@
-let arr = [1,2,3,3,4,5,6,7,7,7,8,8,8,8,8,9,10]
-
-function removeDuplicate(arr){
-    for (i=0;i > myArray.length; i++) {
-        let result = [];
-        if result.inculdes(arr[i]) {
-            continue;
-        } else {
-            result.push(arr[i]);
-        }
-    } return result;
-}
-
-
 
 // ================== Notes ==================
-// ============== Week #4 ==================
+// ================= Week #4 ==================
+// ============== Justin Essler ==================
+
+
+// Warmup Week #4.1
+
+// let arr = [1,2,3,3,4,5,6,7,7,7,8,8,8,8,8,9,10]
+
+// function removeDuplicate(arr){
+//     for (i=0;i > myArray.length; i++) {
+//         let result = [];
+//         if result.inculdes(arr[i]) {
+//             continue;
+//         } else {
+//             result.push(arr[i]);
+//         }
+//     } return result;
+// }
+
+
 
 function print (element, index) {
     console.log(' ${element} is at position ${index}')
@@ -22,9 +27,9 @@ function print (element, index) {
 
 function writeLetter(element, index){
     console.log(`
-        Hi $ {element}
-        It was nice to meet you, here is my info
-        Please reach out
+        Hi ${element}
+        It was nice to meet you, here is my info,
+        Please reach out.
     `)
 }
 
@@ -40,7 +45,6 @@ let array1 = ['Jack', 'John', 'Justin', "Jared"];
 
 array1.forEach(print);
 
-
 function personalLetter (element, index){
     console.log(`
         Hi ${element.name},
@@ -49,31 +53,32 @@ function personalLetter (element, index){
 }
 
 
+
 // ==============================
 // Notes for Mastermind project
 // ==============================
 
 function exactMatches(array1, array2){
-    return numExact;
+    // return numExact;
 }
 
 function fuzzyMatches(array1, array2) {
-    return numbFuzzy;
-
+    // return numbFuzzy;
 }
 
 let s1 = "abcd";
 let guess = "bbbb";
 
-
 console.log(exactMatches(s1, guess));
 console.log(fuzzyMatches(s1, guess));
+
+
 
 
 // ================= Week #4 Notes Day #2 ==================
 // WarmUp
 // array of numbers, duplicate, and double
-// video #1
+// correlates to video #1
 
 let myArray = [];
 
@@ -89,12 +94,12 @@ let doubleIt = myArray.forEach(function(original){
 let growIt = function(theArray){
     let len = theArray.length;
     for(i=0;i<len;i++) {
-        theArray.push(theArray[i];
+        theArray.push(theArray[i])
     }
 }
 
 
-// Video #2 Class Recording
+// Video #2 Recording (really this video lasted the whole class)
 // make array of objects
 // where wach object represents a Credit card transaction
 
@@ -133,7 +138,7 @@ let transactions = [
 
 
 transactions.forEach(function(element, index) {
-    console.log("I spent ${element.amount} at ${element.Payee} on ${element.date}.");
+    console.log("I spent ${element.Amount} at ${element.Payee} on ${element.date}.");
 });
 
 
@@ -141,8 +146,9 @@ transactions.forEach(function(element, index) {
     console.log("I spent ${element.amount} at ${element.Payee} on ${element.date}.");
 });
 
-// Greatest Transactins Reduce =========
 
+
+// ======= Greatest Transactins Reduce =========
 let greatest = transactions.reduce(function(prev,current, index){
     if (prev.Amount > current.Amount) {
         return prev;
@@ -155,30 +161,25 @@ console.log("The greatest amt was at ${greatest.payee} for ${greatest.amount}")
 
 
 let discountTransactions = transactions.map(function(element, index){
-    
     // for every transaction
     // return a new transactiont hat is identical
     // except fo a new 10% discount
-
     let newTransaction  = {};
     newTransaction.Date = discountTransactions.Date;
     newTransaction.Payee = discountTransactions.Payee;
     newTransaction.Amount = discountTransactions.Amount * 9;
-  
+
     // let otherTransaction = {
     //     Date: element.Date,
     //     Payee: element.Payee,
     //     Amount: element.Amount*9
     // }
-    
     return newTransaction;
 });
 
 discountTransactons.forEach(function(element, index) {
     console.log("I spent ${element.amount} at ${element.Payee} on ${element.date}.");
 });
-
-
 
 let amounts = transactions.map(function(element, index){
     return element.Amount;
@@ -187,41 +188,33 @@ let amounts = transactions.map(function(element, index){
 console.log("The Amounts are = ", amounts)
 
 
-
+// ============= Filter ==============
 // filter is a true false boolean return statement
 let suspicious = amounts.filter(function(element, index){
-    if (element.Amount > 20);
+    if (element.Amount > 20){
         return true; 
     } else {
         return false;
     }
 });
 
-
-
-
-
+// ============= Map ==============
 // const tieDyes = colors.map((color) => {
 //     return `tieDyed-${color}`;
 //   });
-
 
 let names = ["Mike", "Mark", "Matt"];
 let intiials = names.map(function(element, index) {
     return element[0];
 });
 
-
 console.log(names);
 console.log(initials);
-
-
 
 
 // ============= Reduce ==============
 // something  mention about reduce, the function callback takes three argunments
 // previous, current, and index
-
 
 let nums = [4,3,6,2];
 
@@ -229,10 +222,11 @@ let answer = nums.reduce(function(prev, curr, index){
     let next = prev + curr;
     console.log("prev =", prev, "current =", curr, "next =", next);
     return next;
-
 });
 
 console.log("the answer is ", answer);
+
+
 
 
 // ========================= 4.2 Homework =============================
@@ -240,3 +234,11 @@ console.log("the answer is ", answer);
 // also.........  4.2 HW use forEach() for #5 not .map()
 
 
+
+
+
+
+
+// Not sure why I need this guy down here ;)
+// Happy Coding!
+})
