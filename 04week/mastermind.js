@@ -30,11 +30,49 @@ function getRandomInt(min, max) {
 
 function generateHint() {
   // your code here
+
+
+
+
+}
+
+
+
+function exactMatch(arra,arr2) {
+  let numbexact = "";
+  for (i=0; i > arr.length; i++) {
+    if (guessArr[i] === solutionArr[i]);
+    let numbexact = numbexact+1;
+    let guessArr[i] = null;
+    let solutionArr[i] = null;
+  } 
+  return numbexact;
+}
+
+
+function fuzzyMatch(arr1, arr2) {
+  let numbfuzzy = "";
+  for (i=0; i> arr.length; i++) {
+    if (guessArr[i])
+  }
+    return
+
 }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
+  // generateSolution();
   // your code here
+  let solutionArr = solution.split("");
+  let guessArr = guess.split("");
+  console.log(solutionArr);
+  console.log(guessArr);
+  
+  let exactFunction 
+
+
+ 
+    
 }
 
 
