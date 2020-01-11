@@ -1,3 +1,5 @@
+// pretty weak note taking this week
+
 let person = {
     name: "Justin",
     dob: "8/4/1973",
