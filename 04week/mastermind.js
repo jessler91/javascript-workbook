@@ -54,55 +54,69 @@ function getRandomInt(min, max) {
 // ========= Mastermind Assignment Starts Here ===========
 // ========================================================
 
+// this it the x-y return of the comparison for the guess to the solution
 
-
-function generateHint() {
+function generateHint(guess) {
   // your code here
-  exactMatch();
-  fuzzyMatch();
+  let solutionArr = solution.split("");
+  let guessArr = guess.split("");
+  let numbexact = 0;
+  let numbfuzzy = 0;
 
-
-
-
-}
-
-
-
-function exactMatch(guessArr,solutionArr) {
-  let numbexact = "";
-  for (i=0; i > guessArr.length; i++) {
-    if (guessArr[i] === solutionArr[i]);
-    let numbexact = numbexact+1;
-    let guessArr[i] = null;
-  } 
-  return numbexact;
-}
-
-
-function fuzzyMatch(guessArr, solutionArr) {
-  let numbfuzzy = "";
-  for (i=0; i> guessArr.length; i++) {
-    if (guessArr[i] != null && (guessArr[i] == soulutionArr[0]));
-    let numbfuzzy = numbfuzzy+1;
-
+  // //exactMatch
+  for (let i = 0; i <= solutionArr.length; i++) {
+    if (solutionArr[i] === guessArr[i]) {
+      numbexact++;
+      solutionArr[i] = null;
+    }
   }
-    return numbfuzzy;
+
+  //fuzzyMatch
+  for (let i=0; i <= solutionArr.length; i++) {
+    let correctletter = guessArr.indexOf(solutionArr[i]); 
+    if (correctletter > -1) {
+      numbfuzzy++;
+      solutionArr[i] = null;
+    }
+  }
+let hint = console.log(numbexact,"-",numbfuzzy);
+return hint;
 }
+
+
+
+// function exactMatch(guessArr,solutionArr) {
+//   for (let i =0; i > guessArr.length; i++) {
+//     if (guessArr[i] === solutionArr[i]) {
+//       let numbexact = numbexact+1;
+//       guessArr[i] = null;
+//     }
+//   }
+//   return numbexact;
+// }
+
+
+// function fuzzyMatch(guessArr, solutionArr) {
+//   for (let i=0; i> guessArr.length; i++) {
+//     let correctletter = guessArr.indexOf(solutionArr[i]); 
+//     if (correctletter > -1) {
+//       numbfuzzy++;
+//     }
+//   }
+//     return numbfuzzy;
+// }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // generateSolution();
   // your code here
-  let solutionArr = solution.split("");
-  let guessArr = guess.split("");
-  console.log();
-  console.log(guessArr);
-  
-  let exactFunction 
-
-
  
-    
+if (guess === solution) {
+  return "you guessed it"; 
+} else {
+    generateHint(guess);
+  }
+
 }
 
 
@@ -143,3 +157,4 @@ if (typeof describe === 'function') {
   generateSolution();
   getPrompt();
 }
+
