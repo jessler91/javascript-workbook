@@ -80,16 +80,32 @@ console.log(fuzzyMatches(s1, guess));
 // array of numbers, duplicate, and double
 // correlates to video #1
 
-let myArray = [];
+// let myArray = [];
+// let myNewArray = myArray.map((array) => {
+// })
 
-let myNewArray = myArray.map((array) => {
 
-})
+// implement a function that takes in an array
+// and returns an array that is double the size
+// with each element repeated
 
-let doubleIt = myArray.forEach(function(original){
+let doubleIt = function(original){
     let doubled = [];
+
     original.forEach(function(element){
+        doubled.push(element);
+        doubled.push(element);
     });
+
+return doubled;
+
+}
+
+let a1 = [1,4,5,6];
+let a2 = ['mike', 'bob', 'smith'];
+
+let doubledA1 = doubleIt(a1);
+let doubledA2 = doubleIt(a2);
 
 let growIt = function(theArray){
     let len = theArray.length;
@@ -150,6 +166,7 @@ transactions.forEach(function(element, index) {
 
 // ======= Greatest Transactins Reduce =========
 let greatest = transactions.reduce(function(prev,current, index){
+    let curr = 0;
     if (prev.Amount > current.Amount) {
         return prev;
     } else {
@@ -229,16 +246,6 @@ console.log("the answer is ", answer);
 
 
 
-// ========================= 4.2 Homework =============================
-// google this - loop through the keys of and object in javascript
-// also.........  4.2 HW use forEach() for #5 not .map()
 
 
 
-
-
-
-
-// Not sure why I need this guy down here ;)
-// Happy Coding!
-})
