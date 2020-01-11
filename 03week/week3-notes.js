@@ -1,4 +1,4 @@
-// pretty weak note taking this week
+// pretty weak note taking this week ;)
 
 let person = {
     name: "Justin",
