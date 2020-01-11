@@ -1,3 +1,24 @@
+// ==============================
+// Notes for Mastermind project
+// Justin Essler
+// 01/07/2020
+// ==============================
+
+// function exactMatches(array1, array2){
+//   return numExact;
+// }
+
+// function fuzzyMatches(array1, array2) {
+//   return numbFuzzy;
+// }
+
+// let s1 = "abcd";
+// let guess = "bbbb";
+
+// console.log(exactMatches(s1, guess));
+// console.log(fuzzyMatches(s1, guess));
+
+
 'use strict';
 
 const assert = require('assert');
