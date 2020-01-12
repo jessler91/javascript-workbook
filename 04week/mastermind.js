@@ -57,7 +57,6 @@ function getRandomInt(min, max) {
 // this it the x-y return of the comparison for the guess to the solution
 
 function generateHint(guess) {
-  // your code here
   let solutionArr = solution.split("");
   let guessArr = guess.split("");
   let numbexact = 0;
@@ -94,7 +93,6 @@ return hint;
 //   }
 //   return numbexact;
 // }
-
 
 // function fuzzyMatch(guessArr, solutionArr) {
 //   for (let i=0; i> guessArr.length; i++) {
