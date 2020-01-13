@@ -62,7 +62,7 @@ function generateHint(guess) {
   let numbexact = 0;
   let numbfuzzy = 0;
 
-  // //exactMatch
+  // exactMatch
   for (let i = 0; i <= solutionArr.length; i++) {
     if (solutionArr[i] === guessArr[i]) {
       numbexact++;
@@ -70,8 +70,8 @@ function generateHint(guess) {
     }
   }
 
-  //fuzzyMatch
-  for (let i=0; i <= solutionArr.length; i++) {
+  // fuzzyMatch
+  for (let i=0; i < solutionArr.length; i++) {
     let correctletter = guessArr.indexOf(solutionArr[i]); 
     if (correctletter > -1) {
       numbfuzzy++;
@@ -85,7 +85,7 @@ return hint;
 
 
 // function exactMatch(guessArr,solutionArr) {
-//   for (let i =0; i > guessArr.length; i++) {
+//   for (let i =0; i < guessArr.length; i++) {
 //     if (guessArr[i] === solutionArr[i]) {
 //       let numbexact = numbexact+1;
 //       guessArr[i] = null;
@@ -95,7 +95,7 @@ return hint;
 // }
 
 // function fuzzyMatch(guessArr, solutionArr) {
-//   for (let i=0; i> guessArr.length; i++) {
+//   for (let i=0; i < guessArr.length; i++) {
 //     let correctletter = guessArr.indexOf(solutionArr[i]); 
 //     if (correctletter > -1) {
 //       numbfuzzy++;
