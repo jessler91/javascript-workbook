@@ -28,13 +28,9 @@ function printStacks() {
 }
 
 
-
-
 // ========================================================
 // ========= Checkpoint1 Assignment Starts Here ===========
 // ========================================================
-
-
 
 
 // ========== Function movePiece =========
@@ -44,8 +40,6 @@ function movePiece(startStack, endStack) {
   stacks[endStack].push(movingPiece);
   // console.log("moved piece and updated the board");
 }
-
-
 
 
 // ========= Function isLegal =========
@@ -72,7 +66,6 @@ function isLegal(startStack, endStack) {
 }
 
 
-
 // ========== Function checkForWin ============
 function checkForWin() {
   // if the player won, return true
@@ -86,7 +79,6 @@ function checkForWin() {
     return false;
     }
 }
-
 
 
 // ========== Function Exectute Towers Game =========
@@ -105,12 +97,9 @@ function towersOfHanoi(startStack, endStack) {
 
 
 
-
 // ========================================================
 // ========= Checkpoint1 Assignment Ends Here ===========
 // ========================================================
-
-
 
 
 function getPrompt() {
