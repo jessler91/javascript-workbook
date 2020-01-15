@@ -9,7 +9,29 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
+
+// class represents a crew member
+// crew member should have a name, job, specialSkill
+// you should have a method called enterShip()
+// this method should take in ship as input
+// this method should updat  the crew list
+
+// class represents a ship
+// ship has a name, type, and ability
+// ship constructor should set an array called crew to be any empty array
+
+// ship should have a method called missionStatement()
+// this method should return "Can't perform mission yet" if it has no crew
+// this method should return the ship's ability if there is at least 1 crew member
+
 // Your code here
+
+
+
+
+
+
+
 
 //tests
 if (typeof describe === 'function'){

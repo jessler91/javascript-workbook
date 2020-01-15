@@ -75,8 +75,6 @@ console.log(`${d1.name} lives at ${d1.address}`);
 
 // your code here
 
-
-
 // ==================== Notes ==================
 // =============== Week # 5 Day # 2 ==================
 // WarmUp
