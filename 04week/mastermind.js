@@ -30,7 +30,8 @@ const rl = readline.createInterface({
 
 let board = [];
 let solution = '';
-let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+// let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+let letters = ['a', 'b', 'c', 'd'];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
@@ -63,7 +64,7 @@ function generateHint(guess) {
   let numbfuzzy = 0;
 
   // exactMatch
-  for (let i = 0; i <= solutionArr.length; i++) {
+  for (let i = 0; i < solutionArr.length; i++) {
     if (solutionArr[i] === guessArr[i]) {
       numbexact++;
       solutionArr[i] = null;
@@ -78,36 +79,38 @@ function generateHint(guess) {
       solutionArr[i] = null;
     }
   }
-let hint = console.log(numbexact,"-",numbfuzzy);
-return hint;
-}
+  let hint = console.log(numbexact,"-",numbfuzzy);
+  return hint;
+  }
 
 
 
-// function exactMatch(guessArr,solutionArr) {
-//   for (let i =0; i < guessArr.length; i++) {
-//     if (guessArr[i] === solutionArr[i]) {
-//       let numbexact = numbexact+1;
-//       guessArr[i] = null;
-//     }
-//   }
-//   return numbexact;
-// }
+  // function exactMatch(guessArr,solutionArr) {
+  //   for (let i =0; i < guessArr.length; i++) {
+  //     if (guessArr[i] === solutionArr[i]) {
+  //       let numbexact = numbexact+1;
+  //       guessArr[i] = null;
+  //     }
+  //   }
+  //   return numbexact;
+  // }
 
-// function fuzzyMatch(guessArr, solutionArr) {
-//   for (let i=0; i < guessArr.length; i++) {
-//     let correctletter = guessArr.indexOf(solutionArr[i]); 
-//     if (correctletter > -1) {
-//       numbfuzzy++;
-//     }
-//   }
-//     return numbfuzzy;
-// }
+  // function fuzzyMatch(guessArr, solutionArr) {
+  //   for (let i=0; i < guessArr.length; i++) {
+  //     let correctletter = guessArr.indexOf(solutionArr[i]); 
+  //     if (correctletter > -1) {
+  //       numbfuzzy++;
+  //     }
+  //   }
+  //     return numbfuzzy;
+  // }
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
+  solution = 'abcd'; 
+  // Comment this out to generate a random solution
   // generateSolution();
   // your code here
+
  
 if (guess === solution) {
   return "you guessed it"; 
