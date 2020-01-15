@@ -1,0 +1,19 @@
+body {
+    background-color: aqua;
+    text-align: center;
+    margin: auto;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+    margin: auto;
+    
+}
+
+button { 
+    text-align: center;
+    margin: 10px;
+    width:200px;
+
+}
