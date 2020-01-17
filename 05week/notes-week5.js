@@ -57,6 +57,10 @@ let d1 = new DL ("Justin Essler", 145728)
 
 console.log(`${d1.name} lives at ${d1.address}`);
 
+
+
+
+
 // =============== Homework Notes - marsMission ==========================
 
 // class represents a crew member
@@ -241,8 +245,6 @@ class account {
 
         let newTrans  = new Transaction(payee, amount);
         transaction.push(newTrans);
-
-    
     }
 
 }
@@ -252,6 +254,16 @@ class Transaction {
         this.date = new Date();
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
