@@ -249,11 +249,11 @@ class account {
 
 }
 
-class Transaction {
-    constructor (...) {
-        this.date = new Date();
-    }
-}
+// class Transaction {
+//     constructor (...) {
+//         this.date = new Date();
+//     }
+// }
 
 
 
