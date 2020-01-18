@@ -1,23 +1,12 @@
 // Justin Essler - 01/09/2019
-
-// Create a new branch off of master called higherOrderFunctions
-// Use the loops.js in the /04week folder of your workbook.
+// new branch: higherOrderFunctions
+// Use the loops.js in the /04week folder.
 // Complete each of the following exercises.
-    // Use a do...while loop to console.log the numbers from 1 to 1000.
-    // Create an object (an array with keys and values) called person with the following data:
-        // firstName: "Jane"
-        // lastName: "Doe"
-        // birthDate: "Jan 5, 1925"
-        // gender: "female"
-    // Use a for...in loop and if statement to console.log the value associated with the key birthDate if the birth year is an odd number.
-// Create an arrayOfPersons that contains mulitiple objects. You can simply copy/paste the person object you made above multiple times. Feel free to change the values to reflect multiple people you might have in your database.
-    // Use .forEach() to loop through the arrayOfPersons and console.log() their information.
-    // Use .filter() to filter the persons array and console.log only males in the array.
-    // Use .filter() to filter the persons array and console.log only people that were born before Jan 1, 1990.
+// google this - "loop through the keys of and object in javascript"
 
 // ========================= 4.2 Homework =============================
-// google this - "loop through the keys of and object in javascript"
-// also.........  4.2 HW use forEach() for #5 not .map() --- done JTE
+
+// Use a do...while loop to console.log the numbers from 1 to 1000.
 
 let numb = 0;
 do {
@@ -25,7 +14,13 @@ do {
   console.log(numb);
 } while (numb < 1000);
 
-
+// Create an object called person
+    // firstName: "Jane"
+    // lastName: "Doe"
+    // birthDate: "Jan 5, 1925"
+    // gender: "female"
+// Use a for...in loop and if statement to...
+    // console.log the value associated with the key birthDate if the birth year is an odd number.
 
 let person = {
     firstName: "Jane",
@@ -33,6 +28,22 @@ let person = {
     birthDate: "Jan 5, 1925",
     gender: "female"
 }
+
+
+for (var property in person) {
+    if (person.birthDate % 2 === 0) {
+        console.log(key + " -> " + person[key]);
+    }
+}
+
+
+
+
+
+
+
+
+// Create an arrayOfPersons that contains mulitiple objects.
 
 
 let arrayOfPersons = [
@@ -70,5 +81,22 @@ let arrayOfPersons = [
 
 
 
+// Use .forEach() to loop through the arrayOfPersons and console.log() their information.
+console.log("======== .forEach() ==========");
+arrayOfPersons.forEach(function(index){
+    console.log(index);
+});
+
+// Use .filter() to filter the persons array and console.log only males in the array.
+console.log("======== .filter() ==========");
+arrayOfPersons.filter(function(checkPersonGender);
+
+function checkPersonGender(gender) {
+    return arrayOfPersons.gender === "male";
+}
 
 
+// Use .filter() to filter the persons array and console.log only people that were born before Jan 1, 1990.
+
+
+fumction eightysBaby()
