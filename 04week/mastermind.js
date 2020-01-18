@@ -79,9 +79,19 @@ function generateHint(guess) {
       solutionArr[i] = null;
     }
   }
+  
   let hint = console.log(numbexact,"-",numbfuzzy);
-  return hint;
-  }
+  
+  return 
+
+}
+
+// Spec 3 - Add guess and hint to the board 
+//  - define a var called hint that collects the returned value of generateHint(guess). 
+//  - .push the guess and the hint (as a combined string) into the board.
+// Spec 4 - End the game After 10 incorrect guesses, 
+//  - if the board length equals 10, 
+//  - return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'.
 
 
 
@@ -112,10 +122,13 @@ function mastermind(guess) {
   // your code here
 
  
-if (guess === solution) {
-  return "you guessed it"; 
-} else {
+  if (guess === solution) {
+    console.log("You guessed it!"); 
+    return
+  } else {
     generateHint(guess);
+    
+    console.log(hint);
   }
 
 }
