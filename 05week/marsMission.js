@@ -1,5 +1,8 @@
-'use strict';
+// =========== JustinEssler =========== //
+// ============= marsMission ========== //
+// ============== 01/18/20 ============ //
 
+'use strict';
 let assert = require('assert');
 
 let jobTypes = {
@@ -9,25 +12,62 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
+// create a class represents a crew member //
+  // crew member should have a name, job, specialSkill
+  // you should have a method called enterShip()
+  // this method should take in ship as input
+  // this method should update the crew list
 
-// class represents a crew member
-// crew member should have a name, job, specialSkill
-// you should have a method called enterShip()
-// this method should take in ship as input
-// this method should updat  the crew list
+class crewMember {
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+  }
+  
+  enterShip(Ship){
+  }
 
-// class represents a ship
-// ship has a name, type, and ability
-// ship constructor should set an array called crew to be any empty array
+}
 
-// ship should have a method called missionStatement()
-// this method should return "Can't perform mission yet" if it has no crew
-// this method should return the ship's ability if there is at least 1 crew member
+// class represents a ship //
+  // ship has a name, type, and ability
+  // ship constructor should set an array called crew to be any empty array
+  // ship should have a method called missionStatement()
+  // missionStatement() should return "Can't perform mission yet" if it has no crew
+  // missionStatement() should return the ship's ability if there is at least 1 crew member
 
-// Your code here
+class Ship {
+  constructor(name, type, ability, crew = []) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+  }
+
+  missionStatement(){
+    if (crew.length <= 0) {
+      return "Can't perform mission yet"
+    } else {
+      return ship.ability;
+    }
+  }
+
+}
 
 
+// Variables //
+let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
 
+// New crewMembers //
+crewMember1.enterShip(mav);
+crewMember2.enterShip(hermes);
+
+// Ship missionStatements //
+mav.missionStatement();
+hermes.missionStatement();
 
 
 
