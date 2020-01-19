@@ -1,16 +1,17 @@
 // =============== Justin Essler ==================== //
 // ============= Week 5.2 Assignment ================ //
 // ============ (instead of checkers) =============== //
+// =========== (on branch: marsMission) ============= //
 
 
-// Create class Acccount
+// Class Acccount 
     // constructor 
     //  - accountNumber: pssed into the constructor
     //  - ownersName: passed into the constructor
     //  - list of transaction: starts empty
     // methods
     //  - balance(): should loop through all the transactions 
-    //  - and return the current balance
+    //    - and return the current balance
     //  - addTransaction(payee, amount); 
     //    - checks to see it the amount is valid 
     //    - (ie. cannot debit more than the balance)
@@ -33,12 +34,12 @@ class Account {
 
 }
 
-// Create class Transaction
+// Create class Transaction 
     // amount: can be either positive or negative
     // payee: passed into the constructor 
     // date: auto set in the constructor
 
-class addTransaction {
+class Transaction {
     constructor (amount, payee, date) {
         this.amount = amount;
         this.payee = payee;
@@ -46,19 +47,21 @@ class addTransaction {
     }
 }
 
-// Goal #2 - Extend the Account
+// Class - Create Savings Account
 //  - Create a savings account that exteneds account
 //  - should have interest rate
 //  - method: accrueInterest(): this method should get the balance,
 //  - and add a new transaction to the list of transactions for the interest accrued
 
 class savingsAccount extends Account {
-    constructor(interestRate) {
+    constructor(accountNumber, ownersName, transaction, interestRate) {
+        super(accountNumber, ownersName, transaction);
         this.interestRate = interestRate;
     }
 
     accrueInterest() {
     }
+
 }
 
 
@@ -81,3 +84,7 @@ accountA.charge(-7.35);
 console.log(accountA.balance());  // should print 942.65
 accountA.charge(-1000);  // this should not go through
 console.log(accountA.balance()); // should print 942.65
+
+
+
+
