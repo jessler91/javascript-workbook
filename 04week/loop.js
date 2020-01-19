@@ -8,7 +8,7 @@
 
 // let numb = 0;
 // do {
-//   numb += 1;
+//   numb += 1;n
 //   console.log(numb);
 // } while (numb < 1000);
 
@@ -27,6 +27,7 @@ let person = {
 
 // Use a for...in loop and if statement to...
     // console.log the value associated with the key birthDate if the birth year is an odd number.
+    // also need to take another look at this one 
 
 
 for (var property in person) {
@@ -38,7 +39,6 @@ for (var property in person) {
 
 
 // Create an arrayOfPersons that contains mulitiple objects.
-
 
 let arrayOfPersons = [
     {
@@ -72,22 +72,25 @@ let arrayOfPersons = [
 // Use .forEach() to loop through the arrayOfPersons and console.log() their information.
 console.log("======== .forEach() ==========");
 arrayOfPersons.forEach(function(index){
-    console.log(index);
+    return console.log(index);
 });
 
 // Use .filter() to filter the persons array and console.log only males in the array.
-
 console.log("======== .filter(males) ==========");
+
 arrayOfPersons.filter(function(person){
-    return person.gender === "male";
+    // cant get this to work
+    return (person.gender == "male");
 });
 
 
 // Use .filter() to filter the persons array and console.log only people that were born before Jan 1, 1990.
 console.log("======== .filter(born before Jan 1, 1990) ==========");
+
 arrayOfPersons.filter(function seperateDate(){
     let dateArray = arrayOfPersons.birthDate.split(" ");
-    console.log(dateArray);
+    return dateArray;
+    // also cant get this figured out
 
 });
 
