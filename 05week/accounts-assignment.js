@@ -1,58 +1,68 @@
+// =============== Justin Essler ==================== //
+// ============= Week 5.2 Assignment ================ //
+// ============ (instead of checkers) =============== //
 
-// Week 5.2 Assignment (instead of checkers)
 
-// Goal #1 - Create two Classes
-
-// class Acccount
-    // atributes / fields
-    //  - account number // this is passed into the constructor
-    //  - owners name // this is passed intt he constructor
-    //  - list of transactions // starts empty
-    // method 
-    //  - balance(): should loop through all the transaction 
+// Create class Acccount
+    // constructor 
+    //  - accountNumber: pssed into the constructor
+    //  - ownersName: passed into the constructor
+    //  - list of transaction: starts empty
+    // methods
+    //  - balance(): should loop through all the transactions 
     //  - and return the current balance
-    //  - addTransaction(payee, amount); // checks to see it the amount is valid (ie. cannot debit more than the balance)
+    //  - addTransaction(payee, amount); 
+    //    - checks to see it the amount is valid 
+    //    - (ie. cannot debit more than the balance)
 
+class Account {
+    constructor (accountNumber, ownersName, transaction) {
+        this.accountNumber = accountNumber;
+        this.ownersName = ownersName;
+        this.transaction = transaction;
+    }
 
-    // option....
-    // instead of addTransaction()
-    // deposit(amt)
-    // charge(payee, amount)
+    balance() {
 
-
-
-// class Transaction
-    // amount (can be either positive or negative)
-    // payee // passed intot he constructor 
-    // date // auto set int he constructor
-
-
-
-// Goal #2 - Extend the 
-
-// Create A savings account that exteneds account
-// should have interest rate
-// method: accrueInterest(): this method should get the balance,
-// and add a new transaction to the list of transactions for the interest accrued
-
-
-
-
-class account {
+    }
 
     addTransaction(payee, amount) {
-
         let newTrans  = new Transaction(payee, amount);
         transaction.push(newTrans);
     }
 
 }
 
-// class Transaction {
-//     constructor (...) {
-//         this.date = new Date();
-//     }
-// }
+// Create class Transaction
+    // amount: can be either positive or negative
+    // payee: passed into the constructor 
+    // date: auto set in the constructor
+
+class addTransaction {
+    constructor (amount, payee, date) {
+        this.amount = amount;
+        this.payee = payee;
+        this.date = new date();
+    }
+}
+
+// Goal #2 - Extend the Account
+//  - Create a savings account that exteneds account
+//  - should have interest rate
+//  - method: accrueInterest(): this method should get the balance,
+//  - and add a new transaction to the list of transactions for the interest accrued
+
+class savingsAccount extends Account {
+    constructor(interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    accrueInterest() {
+    }
+}
+
+
+
 
 
 let accountA = new Account ("123-345-342", "John Doe");
