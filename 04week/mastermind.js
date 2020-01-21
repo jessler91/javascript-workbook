@@ -80,7 +80,9 @@ function generateHint(guess) {
     }
   }
   
-  let hint = console.log(numbexact,"-",numbfuzzy);
+  // let hint = console.log(numbexact,"-",numbfuzzy);
+  let hint = "numbexact-numbfuzzy";
+
   
   return 
 
