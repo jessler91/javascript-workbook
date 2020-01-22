@@ -24,11 +24,14 @@ class Account {
     }
 
     balance() {
+        account.transaction.reduce(function(total, numb){
+            return total + numb;
+        })
 
     }
 
     addTransaction(payee, amount) {
-        let newTrans  = new Transaction(payee, amount);
+        let newTrans  = new Transaction(Shopify, 36.00);
         transaction.push(newTrans);
     }
 
@@ -60,6 +63,9 @@ class savingsAccount extends Account {
     }
 
     accrueInterest() {
+        // let interstTransaction = new Transaction (interestRate);
+        // let transacton.amount = balance()*.017;
+        
     }
 
 }
@@ -77,13 +83,13 @@ accountA.addTransaction("Fraud", -1000);  // this should not go through
 console.log(accountA.balance()); // should print 942.65
 
 
-let accountA = new Account ("123-345-342", "John Doe");
-accountA.deposit(1000);
-accountA.charge(-45);
-accountA.charge(-7.35);
-console.log(accountA.balance());  // should print 942.65
-accountA.charge(-1000);  // this should not go through
-console.log(accountA.balance()); // should print 942.65
+let accountB = new Account ("123-345-342", "John Doe");
+accountB.deposit(1000);
+accountB.charge(-45);
+accountB.charge(-7.35);
+console.log(accountB.balance());  // should print 942.65
+accountB.charge(-1000);  // this should not go through
+console.log(accountB.balance()); // should print 942.65
 
 
 
