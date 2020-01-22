@@ -87,7 +87,10 @@ function generateHint(guess) {
 }
 
 function mastermind(guess) {
-  solution = 'abcd'; 
+  // solution = 'abcd'; 
+  //generateSolution();
+  console.log(solution);
+
   // Comment this out to generate a random solution
   // your code here
 
