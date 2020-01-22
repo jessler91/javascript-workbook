@@ -13,49 +13,49 @@ let jobTypes = {
 };
 
 // create a class represents a crew member //
-  // crew member should have a name, job, specialSkill
-  // you should have a method called enterShip()
-  // this method should take in ship as input
-  // this method should update the crew list of the ship
 
 class CrewMember {
+  // crew member should have a name, job, specialSkill
   constructor(name, job, specialSkill) {
     this.name = name;
     this.job = job;
     this.specialSkill = specialSkill;
   }
-  
+    
+  // contains a method called enterShip()
+  // this method should take in ship as input
+  // this method should update the crew list of the ship
   enterShip(ship){
-    // this needs work //
-    // let crewAssignment = 
-    // this.CrewMember.push()
-    let ship.crew.push(); 
-
+    this.ship = ship;
+    ship.crew.push(this); 
     return 
   }
 
 }
 
 // class represents a ship //
-  // ship constructor has a name, type, ability, and..
-  // ship constructor should set an array called crew to be any empty array
-  // ship should have a method called missionStatement() // to return the ship.ability
-  // missionStatement() should return "Can't perform mission yet" if it has no crew
-  // missionStatement() should return the ship's ability if there is at least 1 crew member
 
 class Ship {
+  // ship constructor has a name, type, ability, and..
+  // ship constructor should set an array called crew to be any empty array
   constructor(name, type, ability, crew = []) {
     this.name = name;
     this.type = type;
     this.ability = ability;
+    this.crew = [];
   }
 
+
+  // a method called missionStatement() .... to return the ship.ability
+  // missionStatement() should return "Can't perform mission yet" if it has no crew
+  // missionStatement() should return the ship's ability if there is at least 1 crew member
+  
   missionStatement(){
     // this needs work too //
-    if (this.crew.length <= 0 || this.crew.length == undefined) {
-      return "Can't perform mission yet"
+    if (this.crew.length < 0 || this.crew.length == undefined) {
+      return "Can't perform mission yet."
     } else {
-      return Ship.ability;
+      return this.ability;
     }
   }
 
