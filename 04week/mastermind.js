@@ -55,7 +55,8 @@ function getRandomInt(min, max) {
 // ========= Mastermind Assignment Starts Here ===========
 // ========================================================
 
-// this it the x-y return of the comparison for the guess to the solution
+// generateSolution();
+// where do I call this function ????
 
 function generateHint(guess) {
   let solutionArr = solution.split("");
@@ -74,63 +75,35 @@ function generateHint(guess) {
   // fuzzyMatch
   for (let i=0; i < solutionArr.length; i++) {
     let correctletter = guessArr.indexOf(solutionArr[i]); 
+    // did I do this correctly above?
     if (correctletter > -1) {
       numbfuzzy++;
       solutionArr[i] = null;
     }
   }
-  
-  // let hint = console.log(numbexact,"-",numbfuzzy);
-  let hint = "numbexact-numbfuzzy";
 
-  
-  return 
+  return `${numbexact}-${numbfuzzy}`;
 
 }
-
-// Spec 3 - Add guess and hint to the board 
-//  - define a var called hint that collects the returned value of generateHint(guess). 
-//  - .push the guess and the hint (as a combined string) into the board.
-// Spec 4 - End the game After 10 incorrect guesses, 
-//  - if the board length equals 10, 
-//  - return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'.
-
-
-
-  // function exactMatch(guessArr,solutionArr) {
-  //   for (let i =0; i < guessArr.length; i++) {
-  //     if (guessArr[i] === solutionArr[i]) {
-  //       let numbexact = numbexact+1;
-  //       guessArr[i] = null;
-  //     }
-  //   }
-  //   return numbexact;
-  // }
-
-  // function fuzzyMatch(guessArr, solutionArr) {
-  //   for (let i=0; i < guessArr.length; i++) {
-  //     let correctletter = guessArr.indexOf(solutionArr[i]); 
-  //     if (correctletter > -1) {
-  //       numbfuzzy++;
-  //     }
-  //   }
-  //     return numbfuzzy;
-  // }
 
 function mastermind(guess) {
   solution = 'abcd'; 
   // Comment this out to generate a random solution
-  // generateSolution();
   // your code here
 
- 
   if (guess === solution) {
-    console.log("You guessed it!"); 
-    return
+    board = [];
+    console.log("You guessed it!");
+    return;
   } else {
-    generateHint(guess);
-    
-    console.log(hint);
+    let hint = generateHint(guess);
+    board.push (`MyGuess #${board.length+1}: ${guess} MyHint #${board.length+1}: ${hint}`);
+    if (board.length - 1 === 10) {
+      board = [];
+      return "You ran out of turns, game is over: " + soultion;
+    } else {
+      return "Guess Again";
+    }
   }
 
 }
@@ -174,3 +147,42 @@ if (typeof describe === 'function') {
   getPrompt();
 }
 
+
+
+
+  // Indepently scripted functions
+  
+  // function exactMatch(guessArr,solutionArr) {
+  //   for (let i =0; i < guessArr.length; i++) {
+  //     if (guessArr[i] === solutionArr[i]) {
+  //       let numbexact = numbexact+1;
+  //       guessArr[i] = null;
+  //     }
+  //   }
+  //   return numbexact;
+  // }
+
+  // function fuzzyMatch(guessArr, solutionArr) {
+  //   for (let i=0; i < guessArr.length; i++) {
+  //     let correctletter = guessArr.indexOf(solutionArr[i]); 
+  //     if (correctletter > -1) {
+  //       numbfuzzy++;
+  //     }
+  //   }
+  //     return numbfuzzy;
+  // }
+
+  // More Notes moving from working area
+
+  // this variable is getting moved to the mastermind function()
+    // let hint = console.log(numbexact,"-",numbfuzzy);
+    // let hint = "numbexact-numbfuzzy";
+    // let hint = the return of generateHint(guess);
+    // the last one is going to be correct
+
+  // Spec 3 - Add guess and hint to the board 
+  //  - define a var called hint that collects the returned value of generateHint(guess). 
+  //  - .push the guess and the hint (as a combined string) into the board.
+  // Spec 4 - End the game After 10 incorrect guesses, 
+  //  - if the board length equals 10, 
+  //  - return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'.
