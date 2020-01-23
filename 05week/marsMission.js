@@ -52,8 +52,8 @@ class Ship {
   
   missionStatement(){
     // this needs work too //
-    if (this.crew.length < 0 || this.crew.length == undefined) {
-      return "Can't perform mission yet."
+    if (this.crew.length <= 0) {
+      return "Can't perform a mission yet."
     } else {
       return this.ability;
     }
