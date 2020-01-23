@@ -62,8 +62,6 @@ class Ship {
 }
 
 
-
-
 // Ships and CrewMembers //
 let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
 let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
@@ -77,8 +75,6 @@ crewMember2.enterShip(hermes);
 // Call Ship missionStatements //
 mav.missionStatement();
 hermes.missionStatement();
-
-
 
 
 
