@@ -1,23 +1,8 @@
-// ==============================
-// Notes for Mastermind project
-// Justin Essler
-// 01/07/2020
-// ==============================
-
-// function exactMatches(array1, array2){
-//   return numExact;
-// }
-
-// function fuzzyMatches(array1, array2) {
-//   return numbFuzzy;
-// }
-
-// let s1 = "abcd";
-// let guess = "bbbb";
-
-// console.log(exactMatches(s1, guess));
-// console.log(fuzzyMatches(s1, guess));
-
+// ==============================================================================
+// Notes for Mastermind project -Justin Essler - 01/07/2020
+// will have to come back and finish this assignment,
+// Im turning it in, but dont have full comprehension of the code
+// ==============================================================================
 
 'use strict';
 
@@ -50,53 +35,45 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
-// ========================================================
-// ========= Mastermind Assignment Starts Here ===========
-// ========================================================
-
-// generateSolution();
-// where do I call this function ????
-
 function generateHint(guess) {
   let solutionArr = solution.split("");
   let guessArr = guess.split("");
   let numbexact = 0;
   let numbfuzzy = 0;
 
-  // exactMatch
-  for (let i = 0; i < solutionArr.length; i++) {
-    if (solutionArr[i] === guessArr[i]) {
-      numbexact++;
-      solutionArr[i] = null;
+    // exactMatch
+    for (let i = 0; i < solutionArr.length; i++) {
+      if (solutionArr[i] === guessArr[i]) {
+        numbexact++;
+        solutionArr[i] = null;
+      }
     }
-  }
 
-  // fuzzyMatch
-  for (let i=0; i < solutionArr.length; i++) {
-    let correctletter = guessArr.indexOf(solutionArr[i]); 
-    // did I do this correctly above?
-    if (correctletter > -1) {
-      numbfuzzy++;
-      solutionArr[i] = null;
+    // fuzzyMatch
+    for (let i=0; i < solutionArr.length; i++) {
+      let correctletters = guessArr.indexOf(solutionArr[i]); 
+      if (correctletters > -1) {
+        numbfuzzy++;
+        solutionArr[i] = null;
+      }
     }
-  }
 
   return `${numbexact}-${numbfuzzy}`;
 
 }
 
 function mastermind(guess) {
-  // solution = 'abcd'; 
-  //generateSolution();
+  // Comment this out to generate a random solution
+  solution = 'abcd'; 
+  // generateSolution();
+
   console.log(solution);
 
-  // Comment this out to generate a random solution
-  // your code here
-
   if (guess === solution) {
-    board = [];
     console.log("You guessed it!");
+    board = [];
+    solution = '';
+    // generateSolution();
     return;
   } else {
     let hint = generateHint(guess);
@@ -111,7 +88,6 @@ function mastermind(guess) {
 
 }
 
-
 function getPrompt() {
   rl.question('guess: ', (guess) => {
     mastermind(guess);
@@ -123,7 +99,7 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-  //solution = 'abcd';
+  solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
       mastermind('aabb');
@@ -189,3 +165,20 @@ if (typeof describe === 'function') {
   // Spec 4 - End the game After 10 incorrect guesses, 
   //  - if the board length equals 10, 
   //  - return 'You ran out of turns! The solution was ' and the solution. Otherwise, return 'Guess again.'.
+
+  // function exactMatches(array1, array2){
+  //   return numExact;
+  // }
+
+  // function fuzzyMatches(array1, array2) {
+  //   return numbFuzzy;
+  // }
+
+  // let s1 = "abcd";
+  // let guess = "bbbb";
+
+  // console.log(exactMatches(s1, guess));
+  // console.log(fuzzyMatches(s1, guess));
+
+  // generateSolution();
+  // where do I call this function ????
