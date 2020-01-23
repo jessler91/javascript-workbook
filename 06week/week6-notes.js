@@ -52,5 +52,20 @@ function zeros (arr) {
 
 
 
-// Dodgeball
+// Dodgeball Assignment
+
+
+
+
+
+
+
+// Justin Essler - Week #6 Day #2 Notes
+
+
+
+
+
+
+
 
