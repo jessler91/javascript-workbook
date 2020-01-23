@@ -32,9 +32,7 @@ let person = {
 
 console.log("======== for...in ==========");
 
-
-// not sure about this var in property, pulltd from stack overflow
-// above I just hard coded the birthyear, 
+// have a question about this one, 
 
 for (var property in person) {
     let birthDateArr = person.birthDate.split(" ");
@@ -69,11 +67,10 @@ let arrayOfPersons = [
     {
         firstName: "Jane",
         lastName: "Williams",
-        birthDate: "Sept 2, 1925",
+        birthDate: "Sept 2, 1995",
         gender: "female"
     }
 ]
-
 
 // ====================== 4.2 Homework ========================
 // Use .forEach() to loop through the arrayOfPersons and console.log() their information.
@@ -90,8 +87,6 @@ arrayOfPersons.forEach(function(index){
 
 console.log("======== .filter(males) ==========");
 let variable = arrayOfPersons.filter(function(person){
-    // cant get this to work
-    // this should be returning one male, not sure why it is not
     return person.gender === "male";
 });
 
@@ -103,16 +98,10 @@ console.log(variable);
 
 console.log("======== .filter(born before Jan 1, 1990) ==========");
 let oldFolks = arrayOfPersons.filter(function(element){
-    // not sure why this split does not work in the same way that the split above works
-    // definitly stumped on this one
     let dateArray = element.birthDate.split(" ");
-    // console.log(dateArray);
- 
-
     if (dateArray[2] < 1990 ) {
         return element;
     }
-
 });
 
 console.log(oldFolks);
