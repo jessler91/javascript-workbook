@@ -17,7 +17,7 @@
     //    - (ie. cannot debit more than the balance)
 
 class Account {
-    constructor (accountNumber, ownersName, transaction) {
+    constructor (accountNumber, ownersName, transaction = []) {
         this.accountNumber = accountNumber;
         this.ownersName = ownersName;
         this.transaction = transaction;
@@ -31,8 +31,8 @@ class Account {
     }
 
     addTransaction(payee, amount) {
-        let newTrans  = new Transaction(Shopify, 36.00);
-        transaction.push(newTrans);
+        let newTrans  = new Transaction(payee, amount);
+        this.transaction.push(newTrans);
     }
 
 }
@@ -43,10 +43,10 @@ class Account {
     // date: auto set in the constructor
 
 class Transaction {
-    constructor (amount, payee, date) {
-        this.amount = amount;
+    constructor (payee, amount, date = new Date()) {
         this.payee = payee;
-        this.date = new date();
+        this.amount = amount;
+        this.date = date;
     }
 }
 
