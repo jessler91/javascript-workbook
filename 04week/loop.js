@@ -32,17 +32,15 @@ let person = {
 
 console.log("======== for...in ==========");
 
-let birthDateArr = person.birthDate.split(" ");
-console.log(birthDateArr);
-let birthYear = birthDateArr[2];
-console.log(birthYear);
 
 // not sure about this var in property, pulltd from stack overflow
 // above I just hard coded the birthyear, 
 
 for (var property in person) {
-    if (birthYear % 2 === 0) {
-        console.log(property + " -> " + person[property]);
+    let birthDateArr = person.birthDate.split(" ");
+    let birthYear = birthDateArr[2];
+    if (birthYear % 2 !== 0) {
+        console.log(person.birthDate);
     }
 }
 
@@ -91,23 +89,24 @@ arrayOfPersons.forEach(function(index){
 // Use .filter() to filter the persons array and console.log only males in the array.
 
 console.log("======== .filter(males) ==========");
-arrayOfPersons.filter(function(person){
+let variable = arrayOfPersons.filter(function(person){
     // cant get this to work
     // this should be returning one male, not sure why it is not
-    return arrayOfPersons.gender === "male";
+    return person.gender === "male";
 });
 
-
+console.log(variable);
 
 
 // ====================== 4.2 Homework ========================
 // Use .filter() to filter the persons array and console.log only people that were born before Jan 1, 1990.
 
 console.log("======== .filter(born before Jan 1, 1990) ==========");
-arrayOfPersons.filter(function seperateDate(element){
+let oldFolks = arrayOfPersons.filter(function(element){
     // not sure why this split does not work in the same way that the split above works
     // definitly stumped on this one
-    let dateArray = arrayOfPersons.birthDate.split(" ");
+    let dateArray = element.birthDate.split(" ");
+    // console.log(dateArray);
  
 
     if (dateArray[2] < 1990 ) {
@@ -115,3 +114,5 @@ arrayOfPersons.filter(function seperateDate(element){
     }
 
 });
+
+console.log(oldFolks);
