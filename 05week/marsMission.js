@@ -1,5 +1,8 @@
-'use strict';
+// =========== JustinEssler =========== //
+// ============= marsMission ========== //
+// ============== 01/18/20 ============ //
 
+'use strict';
 let assert = require('assert');
 
 let jobTypes = {
@@ -9,9 +12,73 @@ let jobTypes = {
   programmer: 'Any Ship!'
 };
 
-// Your code here
+// create a class represents a crew member //
 
-//tests
+class CrewMember {
+  // crew member should have a name, job, specialSkill
+  constructor(name, job, specialSkill) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+  }
+    
+  // contains a method called enterShip()
+  // this method should take in ship as input
+  // this method should update the crew list of the ship
+  enterShip(ship){
+    this.ship = ship;
+    ship.crew.push(this); 
+    return 
+  }
+
+}
+
+// class represents a ship //
+
+class Ship {
+  // ship constructor has a name, type, ability, and..
+  // ship constructor should set an array called crew to be any empty array
+  constructor(name, type, ability, crew = []) {
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+
+
+  // a method called missionStatement() .... to return the ship.ability
+  // missionStatement() should return "Can't perform mission yet" if it has no crew
+  // missionStatement() should return the ship's ability if there is at least 1 crew member
+  
+  missionStatement(){
+    // this needs work too //
+    if (this.crew.length <= 0) {
+      return "Can't perform a mission yet."
+    } else {
+      return this.ability;
+    }
+  }
+
+}
+
+
+// Ships and CrewMembers //
+let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
+
+// Create New crewMembers and Assign Ship //
+crewMember1.enterShip(mav);
+crewMember2.enterShip(hermes);
+
+// Call Ship missionStatements //
+mav.missionStatement();
+hermes.missionStatement();
+
+
+
+// tests //
 if (typeof describe === 'function'){
   describe('CrewMember', function(){
     it('should have a name, a job, a specialSkill and ship upon instantiation', function(){
