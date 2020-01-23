@@ -123,7 +123,7 @@ function getPrompt() {
 // Tests
 
 if (typeof describe === 'function') {
-  solution = 'abcd';
+  //solution = 'abcd';
   describe('#mastermind()', () => {
     it('should register a guess and generate hints', () => {
       mastermind('aabb');
