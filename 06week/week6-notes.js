@@ -63,9 +63,87 @@ function zeros (arr) {
 // Justin Essler - Week #6 Day #2 Notes
 
 
+// Bubble Sort Warmup Exaple
+
+// Option #1 
+// do ... while
+// with a for and if
 
 
+myBubbles = [3, 7, 1, 5, 2]
 
 
+function bubble_Sort(a)
+{
+    var swapp;
+    var n = a.length-1;
+    var x=a;
+    do {
+        swapp = false;
+        for (var i=0; i < n; i++)
+        {
+            if (x[i] < x[i+1])
+            {
+               var temp = x[i];
+               x[i] = x[i+1];
+               x[i+1] = temp;
+               swapp = true;
+            }
+        }
+        n--;
+    } while (swapp);
+ return x; 
+}
 
+console.log(bubble_Sort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]));
+
+
+// Option #2
+// For loop inside of another for loop
+
+
+function swap(arr, first_Index, second_Index){
+  var temp = arr[first_Index];
+  arr[first_Index] = arr[second_Index];
+  arr[second_Index] = temp;
+}
+
+function bubble_Sort(arr){
+
+  var len = arr.length,
+      i, j, stop;
+
+  for (i=0; i < len; i++){
+      for (j=0, stop=len-i; j < stop; j++){
+          if (arr[j] > arr[j+1]){
+              swap(arr, j, j+1);
+          }
+      }
+  }
+
+  return arr;
+}
+console.log(bubble_Sort([3, 0, 2, 5, -1, 4, 1]));
+
+
+// Option #3 - is a recorded video on  01/23/19
+
+
+let someArray = [3, 7, 1, 5, 2]
+
+function bubbleSort(arr) {
+  let len = arr.length;
+  for(let i=0; i<len-1; i++) {
+    
+
+    if (arr[i]>arr[i+1]) {
+      let temp = arr[i];
+      arr[i] = arr[i+1];
+      arr[i+1] = temp;
+
+    }
+    }
+
+
+}
 
