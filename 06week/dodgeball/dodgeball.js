@@ -1,23 +1,26 @@
 // =========== Checkpoint #2 - Dodgeball =================
 // Go back to week 3 videos and see if you can find the pigLatinGui video to watch again
+  // what are the w3 schools  addEventListener input syntax parameters?
+  // specifically the second line of the two just above
 
+
+
+
+// Would you like to play Dodgeball?
+
+let yes = document.getElementById("yes");
+yes.addEvenetListener("click", imIn());
 
 function imIn(){
-    console.log("Sounds good, You are added to the list");
+    console.log("Sounds good, lets get some info");
     let firstResponse = document.getElementById("firstResponseHtml");
     firstResponse.innerText = "cool, lets fill out some info";
     return;
 }
 
-let yes = document.getElementById("yes");
-yes.addEvenetListener("click", imIn());
-
-
 
 let no = document.getElementById("no");
 no.addEvenetListener("click", imOut());
-// what are the w3 schools  addEventListener input syntax parameters?
-// specifically the second line of the two just above
 
 function imOut () {
     console.log("Not a problem, hope you play next time");
@@ -27,29 +30,24 @@ function imOut () {
 }
 
 
+
 let nameInput = document.getElementById("playerName");
 let playerName = nameInput.value;
 
 let skillInput = document.getElementById("playerSkill");
 let playerSkill = skillInput.value;
 
-class dodgeBallPlayer {
-  constructor(person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
 
-    this.canThrowBall = canThrowBall;
-    this.canDodgeBall = canDodgeBall;
-    this.hasPaid = hasPaid;
-    this.isHealthy = isHealthy;
-    this.yearsExperience = yearsExperience;
-  }
+let signedUp = document.getElementById("signUp");
+signedUp.addEvenetListener("click", signedUp());
 
-
+function signedUp() {
+  console.log(playerName, playerSkill)
 
 }
 
 
 
-// arrOPlayers.push(new dodgeBallPlayer(arr[i], true, true, true))
 
 
 
@@ -103,22 +101,65 @@ const arrOfPeople = [
       skillSet: "jump rope",
       placeBorn: "New Orleans, Louisiana"
     },
+    {
+      id: 9,
+      name: "Bobby Cole",
+      age: 35,
+      skillSet: "jump rope",
+      placeBorn: "New Orleans, Louisiana"
+    },
+    {
+      id: 10,
+      name: "Jim Cole",
+      age: 36,
+      skillSet: "jump rope",
+      placeBorn: "New Orleans, Louisiana"
+    },
   ]
   
   const listOfPlayers = []
-  const blueTeam = []
-  const redTeam = []
+  // const blueTeam = []
+  // const redTeam = []
+  
+  class dodgeBallPlayer {
+    constructor(person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
+      this.canThrowBall = canThrowBall;
+      this.canDodgeBall = canDodgeBall;
+      this.hasPaid = hasPaid;
+      this.isHealthy = isHealthy;
+      this.yearsExperience = yearsExperience;
+    }
+  
+  
+  
+  }
   
 
-  class blueTeammate {
-    constructor(){}
-  }
-  class redTeammate {
-    constructor(){}
+  class Drafted extends ddgeBallPlayer {
+    super (canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience)
+    constructor(canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, teamColor, mascott){
+      this.teamColor = teamColor;
+      this.mascott = mascott;
+
+    }
+
+
+
   }
   
-  const listPeopleChoices = () => {
-    const listElement = document.getElementById('people')
+
+  // class blueTeammate {
+  //   constructor(){}
+  // }
+
+  // class redTeammate {
+  //   constructor(){}
+  // }
+  
+
+  function listPeopleChoices() {
+    const listElement = document.getElementById('people');
+
     arrOfPeople.map(person => {
       const li = document.createElement("li")
       const button = document.createElement("button")
@@ -136,6 +177,9 @@ const arrOfPeople = [
 
 
 
+
+
+// arrOPlayers.push(new dodgeBallPlayer(arr[i], true, true, true))
 
 
 

@@ -3,3 +3,8 @@ body {
     text-align: center;
     margin-top: 30px;
 }
+.teams {
+    display: flex;
+    justify-content: space-around;
+
+}
