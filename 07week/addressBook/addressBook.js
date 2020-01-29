@@ -17,3 +17,32 @@
 // https://randomuser.me/api/
 
 
+let arrayOfContacts;
+
+
+window.onload = function() {
+    getContacts()
+}
+
+const consoleContacts = () => {
+    console.log(arrayOfContacts)
+  }
+
+const getContacts = () => {
+  fetch('https://randomuser.me/api/')
+    .then(res => res.json())
+    .then(contacts => arrayOfContacts = contacts)
+}
+
+
+const displayContacts = () => {
+    const allContacts = document.getElementById('contacts')
+    console.log(arrayOfContacts)
+    arrayOfContacts.map((contact, index) => {
+      const li = document.createElement('li')
+      const text = document.createTextNode(`#${index}, Title: ${contact.title}:  ${contact.body}, by user: ${contact.userId}`)
+      li.appendChild(text)
+      allContacts.append(li)
+    })
+  }
+  
