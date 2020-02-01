@@ -17,32 +17,50 @@
 // https://randomuser.me/api/
 
 
-let arrayOfContacts;
-
 
 window.onload = function() {
-    getContacts()
+  console.log("inside window onload")
+  getContacts();
 }
 
-const consoleContacts = () => {
-    console.log(arrayOfContacts)
-  }
+function getContacts() {
+  console.log("about to call API");
+  fetch('https://randomuser.me/api/?results=10')
+  
+    .then(function(response) {
+      return response.json();
+    })
 
-const getContacts = () => {
-  fetch('https://randomuser.me/api/')
-    .then(res => res.json())
-    .then(contacts => arrayOfContacts = contacts)
+    .then(function(myjson) {
+      console.log("processing json payload", myjson);
+      displayContacts(myjson.results);
+    })
 }
 
 
-const displayContacts = () => {
-    const allContacts = document.getElementById('contacts')
-    console.log(arrayOfContacts)
-    arrayOfContacts.map((contact, index) => {
-      const li = document.createElement('li')
-      const text = document.createTextNode(`#${index}, Title: ${contact.title}:  ${contact.body}, by user: ${contact.userId}`)
-      li.appendChild(text)
-      allContacts.append(li)
+function displayContacts(userlist) {
+
+    userlist.forEach(function(user) {
+      console.log("processing single user");
+      let ul = document.getElementById('contacts')
+      let li = document.createElement('li')
+      li.innerText = user.name.first+" "+user.name.last+" ";
+      ul.appendChild(li);
+
+      let myButton = document.createElement("button");
+      myButton.innerText = "More Contact Details"
+      myButton.addEventListener("click", 
+
+        function showDetials(){
+          console.log("inside the more details button");
+          // let ul = document.getElementById('contacts')
+          let liTwo = document.createElement('li')
+          liTwo.innerText = user.name.first+" "+user.name.last;
+          liTwo.appendChild(ul);
+
+        })
+
+      li.appendChild(myButton);
+
     })
   }
-  
