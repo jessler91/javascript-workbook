@@ -6,52 +6,48 @@
 
 
 
-// Would you like to play Dodgeball?
-
+// Would you like to play Dodgeball? // YES
 let yes = document.getElementById("yes");
-yes.addEvenetListener("click", imIn());
+yes.addEventListener("click", imIn());
 
 function imIn(){
-    console.log("Sounds good, lets get some info");
+    // console.log("Sounds good, lets get some info");
     let firstResponse = document.getElementById("firstResponseHtml");
     firstResponse.innerText = "cool, lets fill out some info";
     return;
 }
 
-
+// Would you like to play Dodgeball? // NO
 let no = document.getElementById("no");
-no.addEvenetListener("click", imOut());
+no.addEventListener("click", imOut());
 
 function imOut () {
-    console.log("Not a problem, hope you play next time");
+    // console.log("Not a problem, hope you play next time");
     let firstResponse = document.getElementById("firstResponseHtml");
     firstResponse.innerText = "not a problem, thank you";
     return;
 }
 
-
-
+// Submit your Name to the Draft
+// Submit your skillset
 let nameInput = document.getElementById("playerName");
 let playerName = nameInput.value;
 
 let skillInput = document.getElementById("playerSkill");
 let playerSkill = skillInput.value;
 
+// Button to Signup
+// let signedUp = document.getElementById("signUp");
+// signedUp.addEvenetListener("click", signedUp());
 
-let signedUp = document.getElementById("signUp");
-signedUp.addEvenetListener("click", signedUp());
-
+// Console the Imput Draft Submission
 function signedUp() {
   console.log(playerName, playerSkill)
-
 }
 
 
-
-
-
-
-const arrOfPeople = [
+// Sample Array of people
+let arrOfPeople = [
     {
       id: 2,
       name: "Charles Young",
@@ -117,33 +113,29 @@ const arrOfPeople = [
     },
   ]
   
-  const listOfPlayers = []
-  // const blueTeam = []
-  // const redTeam = []
-  
-  class dodgeBallPlayer {
+
+  class DodgeBallPlayer {
     constructor(person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
+      this.id = person.id;
+      this.name = person.name;
       this.canThrowBall = canThrowBall;
       this.canDodgeBall = canDodgeBall;
       this.hasPaid = hasPaid;
       this.isHealthy = isHealthy;
       this.yearsExperience = yearsExperience;
     }
-  
-  
+
+    
   
   }
   
 
-  class Drafted extends ddgeBallPlayer {
-    super (canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience)
-    constructor(canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, teamColor, mascott){
+  class Drafted extends DodgeBallPlayer {
+    constructor (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, teamColor, mascott){
+      super (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) 
       this.teamColor = teamColor;
       this.mascott = mascott;
-
     }
-
-
 
   }
   
@@ -157,29 +149,93 @@ const arrOfPeople = [
   // }
   
 
+
+
+  // List the People that can be turned into players
+  // should list the person name and skill set
+  // along with a button with function to make a dodge ball player
+
   function listPeopleChoices() {
-    const listElement = document.getElementById('people');
+    let listElement = document.getElementById('people');
 
     arrOfPeople.map(person => {
-      const li = document.createElement("li")
-      const button = document.createElement("button")
-      button.innerHTML = "Make Player"
-      button.addEventListener('click', function() {makePlayer(person.id)} )
-      li.appendChild(button)
-      li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-      listElement.append(li)
+      let li = document.createElement("li");
+      li.appendChild(document.createTextNode(person.name + " - " + person.skillSet+"  "));
+
+        let makePlayer = document.createElement("button");
+        makePlayer.innerHTML = "Make Player";
+        makePlayer.addEventListener('click', function() {interestedPlayer(person)} );
+        li.appendChild(makePlayer);
+      
+      // Append the entire line, name, skill, red button, blue button
+      listElement.appendChild(li);
     })
   }
+
+
+
+
+  // List Dodge Ball Players
+  // should list the person name 
+  // along with two buttons with function to make a red team or blue team
+  // uses the person.id to push player the dodge ball payers list
+  // should add the class New DodgeBallPlayer to arrOfPeople
+
+
+  let dodgeBallPlayer = [];
+
+  function interestedPlayer(person) {
+
+      dodgeBallPlayer.push(new DodgeBallPlayer(person, true, true, true, true, true));
+      let playerElement = document.getElementById('players');
+      
+      dodgeBallPlayer.map(person => {
+        let playerli = document.createElement("li");
+        playerli.appendChild(document.createTextNode(person.name +"  "));
   
-  const makePlayer = (id) => {
+        // Add to Red Team Button
+        let buttonRed = document.createElement("button");
+        buttonRed.innerHTML = "Red Team";
+        buttonRed.addEventListener('click', function() {makeRedPlayer(person)} );
+        playerli.appendChild(buttonRed);
+  
+        // Add to blue team button
+        let buttonBlue = document.createElement("button");
+        buttonBlue.innerHTML = "Blue Team";
+        buttonBlue.addEventListener('click', function() {makeBluePlayer(person)} );
+        playerli.appendChild(buttonBlue);
+ 
+        // Append the entire line, name, skill, red button, blue button
+        playerElement.appendChild(playerli);
+      })
+  }
+
+
+
+  // Draft Player, Assign to a blue or red team
+  // A function that uses the DodgeBallPlayers to push player the blue team or red team entession constructors
+  // should add the class New Drafted
+
+  let blueTeam = [];
+  let redTeam = [];
+
+  let makeRedPlayer = (person) => {
     console.log(`li ${id} was clicked!`)
+    redTeam.push(new DodgeBallPlayer(person, true, true, true, true, true));
+    console.log(redTeam)
+  }
+
+
+  let makeBluePlayer = (person) => {
+    console.log(`li ${id} was clicked!`)
+    blue.push(new DodgeBallPlayer(person, true, true, true, true, true));
+    console.log(blueTeam)
   }
 
 
 
 
 
-// arrOPlayers.push(new dodgeBallPlayer(arr[i], true, true, true))
 
 
 
@@ -189,6 +245,14 @@ const arrOfPeople = [
 
 
 
+
+// To use to assign class to...
+
+// Ships and CrewMembers //
+// let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+// let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
+// let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+// let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
 
 
 
