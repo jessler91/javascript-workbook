@@ -3,12 +3,9 @@
   // what are the w3 schools  addEventListener input syntax parameters?
   // specifically the second line of the two just above
 
-
-
-
 // Would you like to play Dodgeball? // YES
 let yes = document.getElementById("yes");
-yes.addEventListener("click", imIn());
+// yes.addEventListener("click", imIn());
 
 function imIn(){
     // console.log("Sounds good, lets get some info");
@@ -19,7 +16,7 @@ function imIn(){
 
 // Would you like to play Dodgeball? // NO
 let no = document.getElementById("no");
-no.addEventListener("click", imOut());
+// no.addEventListener("click", imOut());
 
 function imOut () {
     // console.log("Not a problem, hope you play next time");
@@ -28,25 +25,37 @@ function imOut () {
     return;
 }
 
-// Submit your Name to the Draft
-// Submit your skillset
+// Submit your name to the Draft
+// Submit your Skillset
 let nameInput = document.getElementById("playerName");
 let playerName = nameInput.value;
-
 let skillInput = document.getElementById("playerSkill");
 let playerSkill = skillInput.value;
 
-// Button to Signup
-// let signedUp = document.getElementById("signUp");
-// signedUp.addEvenetListener("click", signedUp());
+let manualSubmission = {
+  id: null,
+  name: playerName,
+  age: null,
+  skillSet: playerSkill,
+  placeBorn: null
+}
 
-// Console the Imput Draft Submission
-function signedUp() {
-  console.log(playerName, playerSkill)
+
+
+// Button to Signup
+let signedUp = document.getElementById("signUp");
+// signedUp.addEvenetListener("click", signedUpFunc());
+
+// Console the Input Draft Submission
+function signedUpFunc() {
+  console.log(playerName, playerSkill);
+  arrOfPeople.push(manualSubmission);
+  
 }
 
 
 // Sample Array of people
+
 let arrOfPeople = [
     {
       id: 2,
@@ -113,6 +122,7 @@ let arrOfPeople = [
     },
   ]
   
+  // Classes and Constructors
 
   class DodgeBallPlayer {
     constructor(person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience){
@@ -123,30 +133,33 @@ let arrOfPeople = [
       this.hasPaid = hasPaid;
       this.isHealthy = isHealthy;
       this.yearsExperience = yearsExperience;
+      this.age = person.age;
     }
-
-    
-  
   }
   
+  // class Drafted extends DodgeBallPlayer {
+  //   constructor (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, teamColor, mascott){
+  //     super (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) 
+  //     this.teamColor = teamColor;
+  //     this.mascott = mascott;
+  //   }
+  // }
 
-  class Drafted extends DodgeBallPlayer {
+  class BlueTeammate extends DodgeBallPlayer {
+    constructor (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, teamColor, mascott) {
+      super (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) 
+      this.teamColor = "blue";
+      this.mascott = "Blues";
+    }
+  }
+
+  class RedTeammate extends DodgeBallPlayer {
     constructor (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience, teamColor, mascott){
       super (person, canThrowBall, canDodgeBall, hasPaid, isHealthy, yearsExperience) 
-      this.teamColor = teamColor;
-      this.mascott = mascott;
+      this.teamColor = "red";
+      this.mascott = "Reds";
     }
-
   }
-  
-
-  // class blueTeammate {
-  //   constructor(){}
-  // }
-
-  // class redTeammate {
-  //   constructor(){}
-  // }
   
 
 
@@ -156,16 +169,21 @@ let arrOfPeople = [
   // along with a button with function to make a dodge ball player
 
   function listPeopleChoices() {
-    let listElement = document.getElementById('people');
+
 
     arrOfPeople.map(person => {
+      // Grab the people id that should display the lsit of people 
+      let listElement = document.getElementById('people');
+
+      // display the name and skill
       let li = document.createElement("li");
       li.appendChild(document.createTextNode(person.name + " - " + person.skillSet+"  "));
 
-        let makePlayer = document.createElement("button");
-        makePlayer.innerHTML = "Make Player";
-        makePlayer.addEventListener('click', function() {interestedPlayer(person)} );
-        li.appendChild(makePlayer);
+      // create and append a "make player" button
+      let makePlayer = document.createElement("button");
+      makePlayer.innerHTML = "Make Player";
+      makePlayer.addEventListener('click', function() {interestedPlayer(person)} );
+      li.appendChild(makePlayer);
       
       // Append the entire line, name, skill, red button, blue button
       listElement.appendChild(li);
@@ -180,8 +198,6 @@ let arrOfPeople = [
   // along with two buttons with function to make a red team or blue team
   // uses the person.id to push player the dodge ball payers list
   // should add the class New DodgeBallPlayer to arrOfPeople
-
-
   let dodgeBallPlayer = [];
 
   function interestedPlayer(person) {
@@ -216,89 +232,31 @@ let arrOfPeople = [
   // A function that uses the DodgeBallPlayers to push player the blue team or red team entession constructors
   // should add the class New Drafted
 
-  let blueTeam = [];
   let redTeam = [];
 
   let makeRedPlayer = (person) => {
-    console.log(`li ${id} was clicked!`)
-    redTeam.push(new DodgeBallPlayer(person, true, true, true, true, true));
-    console.log(redTeam)
+    // console.log(`li ${person} was clicked!`);
+    redTeam.push(new RedTeammate(person));
+    // console.log(redTeam);
+    let redPlayerElement = document.getElementById('red');
+    let redPlayerLine = document.createElement("li");
+    redPlayerLine.appendChild(document.createTextNode(person.name+ ", " + person.age + "y/o, " + person.mascott));
+    redPlayerElement.appendChild(redPlayerLine);
   }
 
+
+  let blueTeam = [];
 
   let makeBluePlayer = (person) => {
-    console.log(`li ${id} was clicked!`)
-    blue.push(new DodgeBallPlayer(person, true, true, true, true, true));
-    console.log(blueTeam)
+    // console.log(`li ${person} was clicked!`);
+    blueTeam.push(new BlueTeammate(person));
+    // console.log(blueTeam);
+    let bluePlayerElement = document.getElementById('blue');
+    let bluePlayerLine = document.createElement("li");
+    bluePlayerLine.appendChild(document.createTextNode(person.name+ ", " + person.age + "y/o, " + person.mascott));
+    bluePlayerElement.appendChild(bluePlayerLine);
+
   }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// To use to assign class to...
-
-// Ships and CrewMembers //
-// let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
-// let crewMember2 = new CrewMember('Commander Lewis', 'commander', 'geology');
-// let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
-// let hermes = new Ship('Hermes', 'Main Ship', 'Interplanetary Space Travel');
-
-
-
-
-
-// ============ Pig Latin #2 JS Code ================
-
-// let button = document.getElementById("button");
-// button.addEvenetListener("click", handleClick); {
-// }
-
-// function buttonClicked() {
-//     console.log("I am inside handeledClick");
-//     // get the word
-//     let inputtedSubmission = document.getElementById("userInput");
-//     let word = userInput.value;
-//     console.log("word : ", word);
-//     // translate the word
-//     let translatedWord = pigLatin(word);
-    
-//     function pigLatin(word) {
-//         word = word.trim().toLowerCase();
-//         const vowel = ["a", "e", "i", "o", "u"];
-//         let firstVowel, firstHalf, secondHalf, switchedWord;
-      
-//         for (var i=0;i<vowel.length;i++){
-//           var wordIndex = word.indexOf(vowel[i]);
-//           console.log(wordIndex, firstVowel);
-//           if (wordIndex > -1 && (wordIndex <= firstVowel || firstVowel == undefined)) {
-//             firstVowel = wordIndex;
-//           }
-//         }
-      
-//         firstHalf = word.substring(0, firstVowel);
-//         secondHalf = word.substring(firstVowel, word.length);
-//         switchedWord = secondHalf + firstHalf;
-        
-//         if (firstVowel !== 0) {
-//           return switchedWord+"ay";  
-//         } else  {
-//           return switchedWord+"yay";
-//         }
-//       }
-//     console.log("the translation is...", translatedWord);
-//     // update the span
-//     let newWord = document.getElementById("newWord");
-//     newWord.innerText = translatedWord;
-//     console.log("I am at the end of handleClick");
-// }
