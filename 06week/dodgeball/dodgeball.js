@@ -3,6 +3,15 @@
   // what are the w3 schools  addEventListener input syntax parameters?
   // specifically the second line of the two just above
 
+  // two issues still with this code at time of submission...
+  
+    // 1st
+    // when clicking on Commit to Draft, to add interested individual to dodgeball player array, the first time it works, 
+    // but then all subsequent times it adds the prior players as a duplicate, then triplicate, and so on...
+    // 2nd
+    // why is the mascott undefined at the very bottom whne the person parameter is passe down to the final array?
+    // if I console log the objects that make up the blueTeam or redTeam, the key value that is mascott has the correct value?
+
 // Would you like to play Dodgeball? // YES
 let yes = document.getElementById("yes");
 // yes.addEventListener("click", imIn());
@@ -10,7 +19,7 @@ let yes = document.getElementById("yes");
 function imIn(){
     // console.log("Sounds good, lets get some info");
     let firstResponse = document.getElementById("firstResponseHtml");
-    firstResponse.innerText = "cool, lets fill out some info";
+    firstResponse.innerText = "cool, please fill out the information fields below";
     return;
 }
 
@@ -31,11 +40,13 @@ let nameInput = document.getElementById("playerName");
 let playerName = nameInput.value;
 let skillInput = document.getElementById("playerSkill");
 let playerSkill = skillInput.value;
+let ageInput = document.getElementById("playerAge");
+let playerAge = ageInput.value;
 
 let manualSubmission = {
   id: null,
   name: playerName,
-  age: null,
+  age: playerAge,
   skillSet: playerSkill,
   placeBorn: null
 }
@@ -49,7 +60,12 @@ let signedUp = document.getElementById("signUp");
 // Console the Input Draft Submission
 function signedUpFunc() {
   console.log(playerName, playerSkill);
-  arrOfPeople.push(manualSubmission);
+  arrOfPeople.unshift(manualSubmission);
+
+  // let manualperson = document.getElementById('people');
+  // let manual = document.createElement("li");
+  // manual.appendChild(document.createTextNode(person.name + " - " + person.skillSet+"  "));
+  // manualperson.appendChild(manual);
   
 }
 
@@ -181,7 +197,7 @@ let arrOfPeople = [
 
       // create and append a "make player" button
       let makePlayer = document.createElement("button");
-      makePlayer.innerHTML = "Make Player";
+      makePlayer.innerHTML = "Commit to Draft";
       makePlayer.addEventListener('click', function() {interestedPlayer(person)} );
       li.appendChild(makePlayer);
       
@@ -202,7 +218,7 @@ let arrOfPeople = [
 
   function interestedPlayer(person) {
 
-      dodgeBallPlayer.push(new DodgeBallPlayer(person, true, true, true, true, true));
+      dodgeBallPlayer.push(new DodgeBallPlayer(person));
       let playerElement = document.getElementById('players');
       
       dodgeBallPlayer.map(person => {

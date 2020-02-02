@@ -8,3 +8,8 @@ body {
     justify-content: space-around;
 
 }
+
+img {
+    height: 300px;
+    width: 600px;
+}
