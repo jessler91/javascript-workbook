@@ -3,6 +3,9 @@
 // ============ (instead of checkers) =============== //
 // =========== (on branch: marsMission) ============= //
 
+// at the time of assignment submission the get balance() method is still not working and returns undefined,
+// assignment is already late enough, giving up and will have to come back 
+
 
 // Class Acccount 
     // constructor 
@@ -16,6 +19,8 @@
     //    - checks to see it the amount is valid 
     //    - (ie. cannot debit more than the balance)
 
+    console.log("at the top of page");
+
     class Account {
         constructor (accountNumber, ownersName, transaction = []) {
             this.accountNumber = accountNumber;
@@ -25,8 +30,8 @@
     
         balance() {
             // this method should loop through the list of transactions
-            this.transaction.reduce(function(total, numb){
-                return total + numb;
+            this.transaction.reduce(function(total, currentValue){
+                return {amount: total.amount + currentValue.amount}
             })
     
         }
@@ -64,19 +69,20 @@
         }
     
         addInterestTransaction() {
-            let interestEarned = (this.balance() * interestRate);
-            let newInterestTransaction = new Transaction (payee, interestEarned);
+            let interestEarned = (this.balance() * this.interestRate);
+            let newInterestTransaction = new Transaction (this.payee, interestEarned, new Date());
             this.transaction.push(newInterestTransaction);
             
         }
     
     }
     
+    console.log("at the middle of page");
     
     // My working tests
 
     // create a checking account for Franklin
-    let myKeyAccount = new Account ("xxx-xxx-xca", "Franklin Walters")
+    let myKeyAccount = new Account ("xxx-xxx-cca", "Franklin Walters")
 
 
     // Add a few initial deposits
@@ -88,6 +94,10 @@
     myKeyAccount.addTransaction("ATMOS GAS", -37.35);
 
 
+
+    console.log(myKeyAccount.transaction);
+
+
     // Get the balance of myKeyAccount
     console.log(myKeyAccount.balance());
 
@@ -96,7 +106,7 @@
 
     
     // create a checking account for  Savings Walters
-    let mySavingsAccount = new savingsAccount ("xxx-xxx-xsa", "Franklin Savings Walters", transaction = [], .015)
+    let mySavingsAccount = new savingsAccount ("xxx-xxx-csa", "Franklin Savings Walters", transaction = [], .015)
 
     // Add a few initial savings account deposits
     mySavingsAccount.addTransaction("savings-deposit-#1", 3500);
@@ -115,8 +125,9 @@
 
 
 
+    console.log(mySavingsAccount.transaction);
 
-
+    console.log(mySavingsAccount.balance());
 
 
 
