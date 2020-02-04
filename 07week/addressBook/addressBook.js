@@ -51,12 +51,19 @@ function displayContacts(userlist) {
       myButton.innerText = "More Contact Details"
       myButton.addEventListener("click", 
 
+        // Conceptual Question
+        // I spent a long time trying to get the "Assitional Details" show between the li and the following li that were appended,
+        // eventually gave up and decided that I was going to create a new ul like we discussed in class, and append the dtials below
+        // interested to know how this would be achieved, would I have to create a div aroung each li so I could insert element betteen?
+        // and if I appenededChild("someDivElement"), would that append to the html doc display all containing elements in the appended DIV ?
+
         function showDetials(){
           console.log("inside the more details button");
-          // let ul = document.getElementById('contacts')
+          // console.log(user.name.first);
+          let ulTwo = document.getElementById('detials')
           let liTwo = document.createElement('li')
-          liTwo.innerText = user.name.first+" "+user.name.last;
-          liTwo.appendChild(ul);
+          liTwo.innerText = "thats whats up";
+          ulTwo.appendChild(liTwo);
 
         })
 
@@ -64,3 +71,11 @@ function displayContacts(userlist) {
 
     })
   }
+
+
+
+
+
+
+
+
