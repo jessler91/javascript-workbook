@@ -31,7 +31,7 @@ function getContacts() {
 
 function displayContacts(userlist) {
 
-    userlist.forEach(function(user) {
+    userlist.map(function(user) {
       console.log("processing single user");
       let ul = document.getElementById('contacts')
       let li = document.createElement('li')
@@ -50,11 +50,28 @@ function displayContacts(userlist) {
 
         function showDetials(){
           console.log("inside the more details button");
-          // console.log(user.name.first);
-          let ulTwo = document.getElementById('detials')
-          let liTwo = document.createElement('li')
-          liTwo.innerText = "thats whats up";
+
+          // Get the Detials Document
+          let ulTwo = document.getElementById('details');
+
+          // Cerate elements
+          let liTwo = document.createElement('li');
+          let liThree = document.createElement('li');
+          let liFour = document.createElement('li');
+          let pic = document.createElement('img');
+
+          // Add more detials content
+          liTwo.innerText = user.name.first+" "+user.name.last+" ";
+          liThree.innerText = user.cell+" | "+user.email+" | "+user.gender;
+          liFour.innerText = user.location.city+", "+user.location.state+" "+user.location.country;
+          pic.setAttribute('src', user.picture.large);
+
+          // Append our lines
           ulTwo.appendChild(liTwo);
+          ulTwo.appendChild(liThree);
+          ulTwo.appendChild(liFour);
+          ulTwo.append(pic);
+          
 
         })
 

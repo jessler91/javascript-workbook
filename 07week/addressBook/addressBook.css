@@ -1,4 +1,21 @@
 body {
-    margin: 0px;
+    margin: 20px;
     text-align: center;
+
+}
+
+hr {
+    margin:20px
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul > li {
+    margin: 6px;
+}
+
+img {
+    margin-bottom: 20px;
 }
