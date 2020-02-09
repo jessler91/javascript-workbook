@@ -16,8 +16,18 @@ function getStockData() {
     })
     .then(myjson => {
         console.log(myjson)
-        let industry = summaryProfile.indusrty;
-        let sector = summaryProfile.sector;
+
+        // This is the variable definitions to get the value that 
+        // will be used to update the spad with matching element
+
+
+
+        // it looks like the term is JSON handeling
+        // which of these is correct, above format, or below...?
+        let companyName = myjson.Object.price.shortName;
+        let marketCap = Object.price.marketCap.fmt;
+        let industry = Object.summaryProfile.indusrty;
+        let sector = Object.summaryProfile.sector;
         let website = Object.summaryProfile.website;
         let totalRevenue = Object.financialData.totalRevenue.fmt;
         let totalEBITDA = Object.financialData.ebitda.fmt;
@@ -26,6 +36,7 @@ function getStockData() {
         let totalDebt = Object.financialData.totalDebt.fmt;
         let debtTwoEquity = Object.financialData.debtToEquity.fmt;
 
+        // just tring to see what the returned vaue is 
         console.log(industry);
 
 
@@ -42,10 +53,14 @@ function getStockData() {
 
 // Define the Important Company Return Metrics
 // Defining the values of the variables collected to be updated
-    let companyName = myjson.Object.price.shortName;
-    let marketCap = Object.price.marketCap.fmt;
 
-    //which of these is correct, above format, or below...?
+
+    // I moved these variable defining statements UP
+    // to inside the console log of the my json promise
+
+    // See above.. line 21
+
+
 
 
 
