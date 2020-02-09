@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetch Practice</title>
+</head>
+<body>
+
+  <!-- When you click this button, the posts collected in the fetch request will be logged in the console in your devtools tray -->
+  <button onclick="consolePosts()">Console Posts</button>
+  <!-- When you click this button the posts collected from the fetch request will be displayed below in the ul element with the id='all-posts' -->
+  <button onclick="displayPost()">Display All Posts</button>
+  <button onclick="displayFivesPosts()">List of all Posts by UserID #5</button>
+  <button onclick="displayComments()">List of all Comments</button>
+  <button onclick="displayUsers()">List of Users</button>
+  <div>
+    <h3>Display All Posts</h3>
+    <ul id='all-posts'></ul>
+    <h3>List of all Posts by UserID #5</h3>
+    <ul id='five'></ul>
+    <h3>List of all Comments</h3>
+    <ul id='comments'></ul>
+    <h3>List of Users</h3>
+    <ul id='users'></ul>
+  </div>
+  <script src="fetchPractice.js"></script>
+</body>
+</html>
