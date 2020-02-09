@@ -1,0 +1,15 @@
+body {
+    background-color: aqua;
+    text-align: center;
+    margin-top: 30px;
+}
+.teams {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+img {
+    height: 300px;
+    width: 600px;
+}

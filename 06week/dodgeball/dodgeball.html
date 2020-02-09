@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkpoint #2 - Dodgeball</title>
+    <link rel="stylesheet" type="text/css"href="dodgeball.css">
+</head>
+<body>
+    <br>
+    <img src="images/dodgeball-logo.jpeg"><br>
+    <br>
+    ACA 211 - Checkpoint #2
+    <br>
+    <br>
+    Would you like to play dodgeball for the ACA Dodgeball Team?<br>
+    Now taking signups for interested individuals.
+    <br>
+    <br>
+    <button id="yes" onclick="imIn()">YES</button>
+    <button id="no" onclick="imOut()">NO</button>
+    <br>
+    <br>
+    <span id="firstResponseHtml">....</span>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h4>Submit you Name for the ACA Dodge Ball Draft</h4>
+    Player Name: <input id="playerName"><br>
+    Player Skill: <input id="playerSkill"><br>
+    Player Age: <input id="playerAge"><br>
+    <br>
+    <button id="signUp" onclick="signedUpFunc()">Signup to Play</button>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <!-- starter code from the ACA textbook  -->
+    <br>
+
+    <div>
+        <h4>List Of Interested Individuals</h4>
+        <ul id="people"></ul>
+    </div>
+    <button id="getList" onclick="listPeopleChoices()">List People</button>
+    <div>
+        <br>
+        <hr>
+        <h4>Committed Members to the ACA Dodgeball Draft</h4>
+        <ul id="players"></ul>
+    </div>
+    <hr>
+    <br>
+    <h4>Team Distributions</h4>
+    <div class="teams">
+        <div>
+            <h4>Blue Team</h4>
+            <ul id="blue"></ul>
+        </div>
+        <div>
+            <h4>Red Team</h4>
+            <ul id="red"></ul>
+        </div>
+    </div>
+    
+    <script src="dodgeball.js"></script>
+</body>
+</html>
