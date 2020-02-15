@@ -221,7 +221,10 @@ let arrOfPeople = [
       dodgeBallPlayer.push(new DodgeBallPlayer(person));
       let playerElement = document.getElementById('players');
       
-      dodgeBallPlayer.map(person => {
+// Comment from Yousif...
+// you dont need to do this work on every person in the list of dodgeBallPlayers, just the person you just created.
+
+      // dodgeBallPlayer.map(person => {
         let playerli = document.createElement("li");
         playerli.appendChild(document.createTextNode(person.name +"  "));
   
@@ -239,7 +242,7 @@ let arrOfPeople = [
  
         // Append the entire line, name, skill, red button, blue button
         playerElement.appendChild(playerli);
-      })
+      // })
   }
 
 
