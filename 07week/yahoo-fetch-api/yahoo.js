@@ -1,3 +1,20 @@
+// =================================================== //
+// ======= Choose you own API Assignment ============= // 
+// ================ Justin Essler ==================== //
+// =================================================== //
+
+var companyName;
+var marketCap;
+var industry;
+var sector;
+var website;
+var totalRevenue;
+var totalEBITDA;
+var grossMargin;
+var totalCash;
+var totalDebt;
+var debtTwoEquity;
+
 function getStockData() {
 
     let inputbox = document.getElementById("tickr");
@@ -10,13 +27,17 @@ function getStockData() {
             "x-rapidapi-key": "aa58a61455msh9a74d8a8fc41f2fp1c9e39jsn6213f7c23f2a"
         }
     })
+
     .then(response => {
         console.log(response);
         return response.json();
     })
+
+    // You are passing the result to definedVariables function, but bellow that function is not accepting any parameters/input
+    
     .then(myjson => {
         console.log(myjson)
-        defineVariables(myjson.Object)
+        defineVariables(myjson)
     })
       
     .catch(err => {
@@ -29,26 +50,21 @@ function getStockData() {
 // Defining the values of the variables collected to be updated
     // This is the variable definitions to get the value that 
     // will be used to update the spad with matching element
-    // it looks like the term is JSON handeling
-    // which of these is correct, above format, or below...?
-    // I moved these variable defining statements UP
-    // to inside the console log of the my json promise
+    // research further JSON handeling
 
-function defineVariables() {
-    let companyName = Object.price.shortName;
-    let marketCap = Object.price.marketCap.fmt;
-    let industry = Object.summaryProfile.indusrty;
-    let sector = Object.summaryProfile.sector;
-    let website = Object.summaryProfile.website;
-    let totalRevenue = Object.financialData.totalRevenue.fmt;
-    let totalEBITDA = Object.financialData.ebitda.fmt;
-    let grossMargin = Object.financialData.grossMargins.fmt;
-    let totalCash = Object.financialData.totalCash.fmt;
-    let totalDebt = Object.financialData.totalDebt.fmt;
-    let debtTwoEquity = Object.financialData.debtToEquity.fmt;
+function defineVariables(results) {
 
-    // just tring to see what the returned vaue is 
-    console.log(industry);
+     companyName = results.price.shortName;
+     marketCap = results.price.marketCap.fmt;
+     industry = results.summaryProfile.industry;
+     sector = results.summaryProfile.sector;
+     website = results.summaryProfile.website;
+     totalRevenue = results.financialData.totalRevenue.fmt;
+     totalEBITDA = results.financialData.ebitda.fmt;
+     grossMargin = results.financialData.grossMargins.fmt;
+     totalCash = results.financialData.totalCash.fmt;
+     totalDebt = results.financialData.totalDebt.fmt;
+     debtTwoEquity = results.financialData.debtToEquity.fmt;
 
     // then update the spans with the captured values
     return updatePage();
@@ -61,31 +77,29 @@ function updatePage() {
 
     // Summary Profile
     let nameElement = document.getElementById("comapnyName");
-    nameElement.innerText = companyName;
+    nameElement.innerText = " "+companyName;
     let marketCapElement = document.getElementById("marketCap");
-    marketCapElement.innerText = marketCap;
+    marketCapElement.innerText = " "+marketCap;
     let industryElement = document.getElementById("industry");
-    industryElement.innerText = industry;
+    industryElement.innerText = " "+industry;
     let sectorElement = document.getElementById("sector");
-    sectorElement.innerText = sector;
+    sectorElement.innerText = " "+sector;
     let websiteElement = document.getElementById("website");
-    websiteElement.innerText = website;
-
+    websiteElement.innerText = " "+website;
     //  Income Statement
     let totalRevenueElement = document.getElementById("totalRevenue");
-    totalRevenueElement.innerText = totalRevenue;
+    totalRevenueElement.innerText = " "+totalRevenue;
     let totalEBITDAElement = document.getElementById("ebitda");
-    totalEBITDAElement.innerText = totalEBITDA;
+    totalEBITDAElement.innerText = " "+totalEBITDA;
     let grossMarginElement = document.getElementById("grossMargin");
-    grossMarginElement.innerText = grossMargin;
-
+    grossMarginElement.innerText = " "+grossMargin;
     //  Balance Sheet Info
     let totalCashElement = document.getElementById("totalCash");
-    totalCashElement.innerText = totalCash;
+    totalCashElement.innerText = " "+totalCash;
     let totalDebtElement = document.getElementById("totalDebt");
-    totalDebtElement.innerText = totalDebt;
+    totalDebtElement.innerText = " "+totalDebt;
     let debtTwoEquityElement = document.getElementById("debtTwoEquity");
-    debtTwoEquityElement.innerText = debtTwoEquity;
+    debtTwoEquityElement.innerText = " "+debtTwoEquity;
 
 }
 
